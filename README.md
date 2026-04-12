@@ -1,3 +1,5 @@
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -10,7 +12,7 @@
 /* ✨ Body & Background */
 body {
   font-family: 'Poppins', sans-serif;
-  margin: 1;
+  margin: 0;
   color: white;
   overflow-x: hidden;
   min-height: 100vh;
@@ -50,140 +52,322 @@ body {
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 .float{animation:float 6s ease-in-out infinite;}
 
-/* ✨ Pulse text */
-@keyframes pulse-slow{0%,100%{text-shadow:0 0 5px #ff99ff;}50%{text-shadow:0 0 20px #ffccff;}}
-.animate-pulse-slow{animation:pulse-slow 3s ease-in-out infinite;}
-
 /* ✨ Scrollbar */
 ::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-thumb{background:#ff66ff;border-radius:4px;}
 section{scroll-margin-top:80px;}
+
+/* 🤖 Chatbot Styles */
+#chat-container {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  background: rgba(26, 0, 51, 0.95);
+  border: 2px solid #ff66cc;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  box-shadow: 0 0 20px #ff66cc;
+  display: none;
+}
+
+#chat-header {
+  background: #ff66cc;
+  padding: 10px;
+  border-radius: 12px 12px 0 0;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+#chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  max-height: 250px;
+}
+
+.bot-msg { color: #ff99ff; margin-bottom: 8px; }
+.user-msg { color: #fff; margin-bottom: 8px; text-align: right; }
+
+#chat-input-area {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ff66cc;
+}
+
+#chat-input {
+  flex: 1;
+  background: transparent;
+  border: 1px solid #ff66cc;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  outline: none;
+}
+
+#chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff66cc;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 0 15px #ff66cc;
+  font-size: 30px;
+}
 </style>
 </head>
 
-<body class="relative min-h-screen">
+<body>
 
 <div class="mist"></div>
 <div class="stars"></div>
 <div class="sparkles"></div>
 <div class="magic-frame"></div>
 
-<!-- 🌙 NAV -->
-<nav class="py-3 px-2 text-center text-white font-bold text-base sm:text-lg flex flex-wrap justify-center gap-4 sticky top-0 z-50 bg-pink-700/40 backdrop-blur-md">
+<nav class="py-3 px-2 text-center text-white font-bold text-sm sm:text-base flex flex-wrap justify-center gap-3 sticky top-0 z-50 bg-pink-700/40 backdrop-blur-md">
   <a href="#home">Home</a>
   <a href="#about">About</a>
+  <a href="#resume">Resume</a>
+  <a href="#certificates">Certificates</a>
+  <a href="#simulation">Simulation</a>
   <a href="#skills">Skills</a>
   <a href="#experience">Experience</a>
   <a href="#tutorials">Tutorials</a>
-  <a href="#tools">Tools</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- 🏰 HOME -->
-<section id="home" class="flex flex-col items-center text-center px-4 py-16 sm:py-20">
-  <h1 class="text-3xl sm:text-5xl font-bold mb-6 glow-text">Welcome to My Enchanted Portfolio!</h1>
+<section id="home" class="flex flex-col items-center text-center px-4 py-16">
+  <h1 class="text-3xl sm:text-4xl font-bold mb-6 glow-text whitespace-nowrap">Welcome to My Portfolio!</h1>
   <div class="relative mb-6">
-    <img src="Just me.jpg" alt="Celyn" class="w-40 h-40 sm:w-48 sm:h-48 rounded-full border-4 border-pink-500 object-cover glow-border float">
+    <img src="Just me.jpg" alt="Celyn" class="w-40 h-40 rounded-full border-4 border-pink-500 object-cover glow-border float">
   </div>
 </section>
 
-<!-- 📝 ABOUT -->
-<section id="about" class="text-center px-4 py-12 sm:py-16">
-  <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-pink-400 glow-text">   ✨ About Me ✨</h2>
-  <div class="max-w-md sm:max-w-2xl mx-auto text-base sm:text-lg text-gray-200 space-y-4">
-    <p>Hi, it’s me <span class="font-bold text-white">Celyn</span>, a passionate <span class="text-pink-400 font-semibold">2nd Year BSIT Student</span>. I love blending creativity and technology to create projects that feel alive and magical.</p>
-    <p> My goal is to use technology to solve real-world problems and create meaningful digital experiences. I’m constantly learning new tools and improving my skills in programming, web development, and creative design software.</p>
+<section id="about" class="text-center px-4 py-12">
+  <h2 class="text-3xl font-bold mb-6 text-pink-400 glow-text whitespace-nowrap">✨ About Me ✨</h2>
+  <div class="max-w-md sm:max-w-2xl mx-auto text-gray-200">
+    <p>I am <span class="font-bold text-white">Celyn</span>, a 2nd Year BSIT Student. I enjoy creating magical digital experiences through technology and design.</p>
   </div>
 </section>
 
-<!-- 🛠️ SKILLS -->
-<section id="skills" class="text-center px-4 py-12 sm:py-16">
-  <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-pink-400 glow-text">🛠️ My Skills</h2>
-  <div class="flex flex-col items-center gap-6 sm:gap-8">
-    <img src="banner.jpg" class="w-65 rounded-lg glow-border float" alt="Banner">
-    <img src="chessboard.png" class="w-40 rounded-lg glow-border float" alt="Chessboard">
-    <img src="figma ecommerce.jpg" class="w-40 rounded-lg glow-border float" alt="Figma Ecommerce">
-    <img src="product design.png" class="w-40 rounded-lg glow-border float" alt="Product Design">
-    <img src="tshirt layout.png" class="w-60 rounded-lg glow-border float" alt="T-shirt Layout">
+<section id="resume" class="text-center px-4 py-12">
+  <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">📄 My Resume</h2>
+  <div class="max-w-xs mx-auto">
+    <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-4 glow-border float">
+      <img src="resume.png" alt="My Resume" class="w-full rounded-lg mb-4">
+      <a href="resume.png" download class="inline-block py-2 px-6 bg-pink-600 text-white font-bold rounded-lg hover:bg-pink-700 transition">Download</a>
+    </div>
   </div>
 </section>
 
-<!-- 🏆 EXPERIENCE -->
-<section id="experience" class="text-center px-4 py-12 sm:py-16">
-  <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-pink-400 glow-text animate-bounce">🏆 My Experience</h2>
-  <div class="max-w-md sm:max-w-3xl mx-auto space-y-8">
+<section id="certificates" class="text-center px-4 py-12">
+  <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">📜 IT Training Certificate</h2>
+  <div class="flex flex-col items-center gap-8 max-w-2xl mx-auto">
+    <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float w-full">
+      <p class="text-pink-300 font-semibold mb-2">March 10, 2026</p>
+      <p class="text-gray-200 text-sm mb-4">A touch of magic in technical training.</p>
+      <img src="March 10.png" class="w-full h-auto rounded-lg border border-pink-400 shadow-md" alt="Training Certificate 1">
+    </div>
+    <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float w-full">
+      <p class="text-pink-300 font-semibold mb-2">March 12, 2026</p>
+      <p class="text-gray-200 text-sm mb-4">Enchanted skills mastered with care.</p>
+      <img src="March 12.png" class="w-full h-auto rounded-lg border border-pink-400 shadow-md" alt="Training Certificate 2">
+    </div>
+  </div>
+</section>
 
-    <!-- 🎬 PNP Anniversary Contest -->
-    <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float">
-      <h3 class="text-2xl font-semibold text-pink-300 glow-text mb-2">
-        Champion in PNP Anniversary Video Editing Contest
-      </h3>
-      <p class="text-gray-300 mb-2">🏅 Year: 2021</p>
-      <p class="text-gray-200 text-sm leading-relaxed">
-        Awarded for outstanding creativity and editing skills using 
-        <span class="text-pink-400 font-medium">Film Maker Pro</span> and 
-        <span class="text-pink-400 font-medium">Kinemaster</span>.
-      </p>
-      <div class="mt-4 flex justify-center gap-3">
-        <img src="film maker pro.png" class="w-16 h-16 rounded-lg glow-border" alt="Film Maker Pro">
-        <img src="kinemaster.png" class="w-16 h-16 rounded-lg glow-border" alt="Kinemaster">
+<section id="simulation" class="text-center px-4 py-12">
+  <h2 class="text-3xl font-bold mb-10 text-pink-300 glow-text whitespace-nowrap">🧪 My Simulation</h2>
+  <div class="max-w-4xl mx-auto bg-[#1a0033]/80 border border-pink-500 rounded-3xl p-6 shadow-[0_0_25px_#ff00cc]">
+    <h3 class="text-2xl font-bold mb-6 text-white">BSIT-2B Attendance System</h3>
+    
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+      <input type="date" id="attendanceDate" class="bg-black/50 border border-pink-500 text-white p-2 rounded-lg outline-none">
+      <input type="text" id="subjectName" placeholder="Subject Name" class="bg-black/50 border border-pink-500 text-white p-2 rounded-lg outline-none">
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div class="bg-white/5 p-4 rounded-2xl border border-pink-400/30">
+        <h4 class="text-pink-300 font-bold mb-4">Girls 🌸</h4>
+        <div id="girlsList" class="space-y-2 text-left h-64 overflow-y-auto pr-2"></div>
+      </div>
+      <div class="bg-white/5 p-4 rounded-2xl border border-blue-400/30">
+        <h4 class="text-blue-300 font-bold mb-4">Boys 💎</h4>
+        <div id="boysList" class="space-y-2 text-left h-64 overflow-y-auto pr-2"></div>
       </div>
     </div>
 
-    <!-- 🎨 Tarpapel Editor -->
-    <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float">
-      <h3 class="text-2xl font-semibold text-pink-300 glow-text mb-2">
-        Tarpapel Editor in Birthdays
-      </h3>
-      <p class="text-gray-300 mb-2">🎨 Year: 2020</p>
-      <p class="text-gray-200 text-sm leading-relaxed">
-        Designed creative and personalized tarpapel layouts using 
-        <span class="text-pink-400 font-medium">Canva</span>.
-      </p>
-      <div class="mt-4 flex justify-center">
-        <img src="canva.jpeg" class="w-16 h-16 rounded-lg glow-border" alt="Canva">
-      </div>
-    </div>
+    <button onclick="generateSummary()" class="px-16 py-3 bg-pink-600 rounded-full font-bold hover:bg-pink-700 transition transform hover:scale-105 shadow-lg">DONE ✨</button>
 
-  </div>
-</section>
-
-<!-- 🌸 TUTORIALS -->
-<section id="tutorials" class="text-center px-4 py-12 sm:py-16">
-  <h2 class="text-3xl sm:text-5xl font-extrabold mb-10 text-pink-300 glow-text animate-bounce">✨ YouTube Tutorials </h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
-    <iframe class="rounded-2xl w-full h-56 sm:h-64 glow-border" src="https://www.youtube.com/embed/wCEtWz5imUs" allowfullscreen></iframe>
-    <iframe class="rounded-2xl w-full h-56 sm:h-64 glow-border" src="https://www.youtube.com/embed/ezldKx-jPag" allowfullscreen></iframe>
-    <iframe class="rounded-2xl w-full h-56 sm:h-64 glow-border" src="https://www.youtube.com/embed/61mkx_OV61s" allowfullscreen></iframe>
-    <iframe class="rounded-2xl w-full h-56 sm:h-64 glow-border" src="https://www.youtube.com/embed/keoszhf4DZ8" allowfullscreen></iframe>
-  </div>
-</section>
-
-<!-- 🧚 TOOLS -->
-<section id="tools" class="text-center px-4 py-12 sm:py-16">
-  <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-pink-400 glow-text">🪄 Tools I Used</h2>
-  <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-8">
-    <img src="canva.jpeg" class="w-20 h-20 rounded-lg glow-border">
-    <img src="figma.jpeg" class="w-20 h-20 rounded-lg glow-border">
-    <img src="Adobe Photoshop.jpeg" class="w-20 h-20 rounded-lg glow-border">
-    <img src="Adobe premiere.jpeg" class="w-20 h-20 rounded-lg glow-border">
-  </div>
-</section>
-
-<!-- 💌 CONTACT -->
-<section id="contact" class="text-center px-4 py-12 sm:py-16">
-  <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-pink-400 glow-text">💌 Let's Connect</h2>
-  <div class="max-w-sm sm:max-w-lg mx-auto p-6 bg-[#1a0033]/70 rounded-2xl border border-pink-600 glow-border">
-    <form action="#" method="POST" class="space-y-4">
+    <div id="summaryPanel" class="hidden mt-8 p-6 bg-black/60 rounded-2xl border border-pink-500 text-left">
+      <h3 class="text-xl font-bold text-center text-pink-400 mb-2">Attendance Report</h3>
+      <p id="reportMeta" class="text-center text-gray-400 mb-6"></p>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <input type="text" placeholder="First Name" class="w-full px-4 py-2 border-2 border-pink-400 rounded-lg bg-transparent text-white placeholder-gray-300">
-        <input type="text" placeholder="Last Name" class="w-full px-4 py-2 border-2 border-pink-400 rounded-lg bg-transparent text-white placeholder-gray-300">
+        <div>
+          <h4 class="text-green-400 font-bold">Present: <span id="countPresent">0</span></h4>
+          <div id="listPresent" class="text-xs mt-2 whitespace-pre-line text-gray-300 leading-relaxed"></div>
+        </div>
+        <div>
+          <h4 class="text-red-400 font-bold">Absent: <span id="countAbsent">0</span></h4>
+          <div id="listAbsent" class="text-xs mt-2 whitespace-pre-line text-gray-300 leading-relaxed"></div>
+        </div>
       </div>
-      <input type="email" placeholder="you@example.com" class="w-full px-4 py-2 border-2 border-pink-400 rounded-lg bg-transparent text-white placeholder-gray-300">
-      <textarea rows="5" placeholder="Your message..." class="w-full px-4 py-2 border-2 border-pink-400 rounded-lg bg-transparent text-white placeholder-gray-300"></textarea>
-      <button type="submit" class="w-full py-3 px-4 bg-pink-600 text-white font-bold rounded-lg hover:bg-pink-700 transition glow-border">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="text-center px-4 py-12">
+  <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">🛠️ My Skills</h2>
+  <div class="flex flex-col items-center gap-8 max-w-md mx-auto">
+    <img src="banner.jpg" class="w-full h-auto rounded-lg glow-border float">
+    <img src="chessboard.png" class="w-full h-auto rounded-lg glow-border float">
+    <img src="figma ecommerce.jpg" class="w-full h-auto rounded-lg glow-border float">
+    <img src="product design.png" class="w-full h-auto rounded-lg glow-border float">
+    <img src="tshirt layout.png" class="w-full h-auto rounded-lg glow-border float">
+  </div>
+</section>
+
+<section id="experience" class="text-center px-4 py-12">
+  <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">🏆 Experience</h2>
+  <div class="max-w-md sm:max-w-3xl mx-auto space-y-8 text-center">
+    
+    <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float">
+      <h3 class="text-2xl font-semibold text-pink-300 glow-text mb-2">Video Editing Champion</h3>
+      <p class="text-gray-300 mb-2">🏅 Year: 2021</p>
+      <p class="text-gray-200 text-sm mb-4">PNP Anniversary Video Editing Contest.</p>
+      <div class="flex flex-col items-center gap-6">
+        <img src="film maker pro.png" class="w-24 h-24 rounded-lg glow-border">
+        <img src="kinemaster.png" class="w-24 h-24 rounded-lg glow-border">
+      </div>
+    </div>
+
+    <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float">
+      <h3 class="text-2xl font-semibold text-pink-300 glow-text mb-2">Tarpapel Editor in Birthdays</h3>
+      <p class="text-pink-300 font-medium mb-2">🎨 Year: 2020</p>
+      <p class="text-gray-200 text-sm mb-6 max-w-lg mx-auto">Designed personalized layouts using Canva.</p>
+      <div class="flex flex-col items-center">
+        <div class="relative w-28 h-28 bg-[#0a0015] border-2 border-pink-600 rounded-xl shadow-[0_0_15px_#ff66cc] flex items-center justify-center">
+          <img src="canva.jpeg" class="w-12 h-12 rounded-lg" alt="Canva Logo">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="tutorials" class="text-center px-4 py-12">
+  <h2 class="text-3xl font-bold mb-10 text-pink-300 glow-text whitespace-nowrap">✨ YouTube Tutorials</h2>
+  <div class="flex flex-col items-center gap-8 max-w-2xl mx-auto">
+    <iframe class="rounded-xl w-full h-64 glow-border" src="https://www.youtube.com/embed/wCEtWz5imUs"></iframe>
+    <iframe class="rounded-xl w-full h-64 glow-border" src="https://www.youtube.com/embed/ezldKx-jPag"></iframe>
+  </div>
+</section>
+
+<section id="tools" class="text-center px-4 py-12">
+  <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">🪄 Tools I Used</h2>
+  <div class="flex flex-row justify-center items-center gap-4 sm:gap-6">
+    <img src="canva.jpeg" class="w-16 h-16 sm:w-24 sm:h-24 rounded-lg glow-border">
+    <img src="figma.jpeg" class="w-16 h-16 sm:w-24 sm:h-24 rounded-lg glow-border">
+    <img src="Adobe Photoshop.jpeg" class="w-16 h-16 sm:w-24 sm:h-24 rounded-lg glow-border">
+    <img src="Adobe premiere.jpeg" class="w-16 h-16 sm:w-24 sm:h-24 rounded-lg glow-border">
+  </div>
+</section>
+
+<section id="contact" class="text-center px-4 py-12">
+  <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">💌 Let's Connect</h2>
+  <div class="max-w-sm mx-auto p-6 bg-[#1a0033]/70 rounded-2xl border border-pink-600 glow-border">
+    <form class="space-y-4">
+      <input type="text" placeholder="Name" class="w-full p-2 border border-pink-400 rounded bg-transparent text-white">
+      <input type="email" placeholder="Email" class="w-full p-2 border border-pink-400 rounded bg-transparent text-white">
+      <textarea placeholder="Message" class="w-full p-2 border border-pink-400 rounded bg-transparent text-white"></textarea>
+      <button class="w-full py-2 bg-pink-600 rounded font-bold hover:bg-pink-700 transition">Send</button>
     </form>
   </div>
 </section>
 
+<div id="chat-toggle" onclick="toggleChat()">🤖</div>
+<div id="chat-container">
+  <div id="chat-header"><span>Celyn's Bot</span><button onclick="toggleChat()">✖</button></div>
+  <div id="chat-messages"><div class="bot-msg">✨ Hi! How can I help?</div></div>
+  <div id="chat-input-area"><input type="text" id="chat-input" placeholder="Type..." onkeypress="handleChat(event)"></div>
+</div>
+
+<script>
+  function toggleChat() {
+    const chat = document.getElementById('chat-container');
+    chat.style.display = (chat.style.display === 'none' || chat.style.display === '') ? 'flex' : 'none';
+  }
+  function handleChat(e) {
+    if (e.key === 'Enter') {
+      const input = document.getElementById('chat-input');
+      const msg = input.value.trim();
+      if (msg) { addMessage(msg, 'user-msg'); input.value = ''; setTimeout(() => botResponse(msg), 500); }
+    }
+  }
+  function addMessage(t, c) {
+    const d = document.createElement('div'); d.className = c; d.innerText = t;
+    const m = document.getElementById('chat-messages'); m.appendChild(d); m.scrollTop = m.scrollHeight;
+  }
+  function botResponse(u) {
+    let r = "That's magical!";
+    const t = u.toLowerCase();
+    if (t.includes("resume")) r = "Download my resume in the section above! 📄";
+    else if (t.includes("cert")) r = "I have two IT Training Certificates! 🏆";
+    else if (t.includes("simulation") || t.includes("attendance")) r = "Check out the BSIT-2B Attendance system in the Simulation section! ✨";
+    addMessage(r, 'bot-msg');
+  }
+
+  // Attendance Logic
+  const girls = ["Jocelyn Semillano","Andrea Jean Occeña","Gene Mae Caramihan","Jessa Erosido","Jessa Hilardino","Kristine Joy Basa","Lena Bahian","Rechelle An Casilangan","Roxan Pracio","Shannon De La Cruz","Jeca Dagumboy","Martina Cabrillos","Nera Bahilot","Sheila Marie Lañojan","Trisha Agravante"];
+  const boys = ["Archie Vidal","John Rogen Bullag","Mario Nebres Jr.","AjhannAylle Marfil","Anthony Espinosa","Dave Rivera","Jeffrey Coriento","Kenneth Espinosa","Kevin James Plaza","Luke Axel Barrocum","Mark Angelou Banatasa","Nathaniel Pojas","Paul John Malba","Rodel Cepeda"];
+
+  document.getElementById('attendanceDate').valueAsDate = new Date();
+
+  function renderList(list, elementId) {
+    const container = document.getElementById(elementId);
+    list.sort().forEach(name => {
+      container.innerHTML += `
+      <div class="flex justify-between items-center p-2 bg-white/5 rounded-lg mb-1 hover:bg-pink-500/20 transition">
+          <span class="text-sm">${name}</span>
+          <input type="checkbox" class="att-check w-4 h-4 accent-pink-500 cursor-pointer" data-name="${name}">
+      </div>`;
+    });
+  }
+
+  renderList(girls, 'girlsList');
+  renderList(boys, 'boysList');
+
+  function generateSummary() {
+    const checks = document.querySelectorAll('.att-check');
+    let present = []; let absent = [];
+    checks.forEach(check => {
+      const name = check.getAttribute('data-name');
+      if (check.checked) present.push(name); else absent.push(name);
+    });
+    document.getElementById('countPresent').innerText = present.length;
+    document.getElementById('countAbsent').innerText = absent.length;
+    document.getElementById('listPresent').innerText = present.length > 0 ? present.map(n => "• " + n).join("\n") : "None";
+    document.getElementById('listAbsent').innerText = absent.length > 0 ? absent.map(n => "• " + n).join("\n") : "None";
+    const dateVal = document.getElementById('attendanceDate').value;
+    const subVal = document.getElementById('subjectName').value || "Class Session";
+    document.getElementById('reportMeta').innerText = `${subVal} — ${dateVal}`;
+    const panel = document.getElementById('summaryPanel');
+    panel.classList.remove('hidden');
+    panel.style.display = 'block';
+    panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+</script>
 </body>
 </html>
+
