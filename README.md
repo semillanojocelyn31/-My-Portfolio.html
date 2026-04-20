@@ -1,372 +1,346 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Jocelyn Semillano - Enchanted Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSIT-2B Attendance System</title>
 
 <style>
-/* ✨ Body & Background */
 body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  color: white;
-  overflow-x: hidden;
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #2b003a, #0a0015 80%);
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #3a0a3f, #0f0015 70%);
+    overflow-x: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
 }
 
-/* ✨ Animated mist */
-@keyframes swirl {0%{background-position:0 0;}100%{background-position:1000px 1000px;}}
-.mist {
-  position: fixed;top:0;left:0;width:100%;height:100%;
-  background: radial-gradient(circle, rgba(255,182,193,0.2), transparent 70%), radial-gradient(circle, rgba(255,105,180,0.15), transparent 60%);
-  background-size: 2000px 2000px;
-  animation: swirl 60s linear infinite;
-  z-index:-3;pointer-events:none;
+/* ANIMATED GRADIENT */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(-45deg, #ff00cc, #ff66cc, #6a00ff, #ff00cc);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    opacity: 0.25;
+    z-index: -2;
 }
 
-/* ✨ Stars + sparkles */
-.stars {position:fixed;width:100%;height:100%;background:transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;opacity:.7;z-index:-2;}
-.sparkles {position:fixed;top:0;left:0;width:100%;height:100%;background:transparent url() repeat;background-size:cover;mix-blend-mode:screen;opacity:.3;animation:drift 20s linear infinite;z-index:-1;}
-@keyframes drift{0%{transform:translate(0,0);}50%{transform:translate(-20px,20px);}100%{transform:translate(20px,-20px);}}
-
-/* ✨ Magical frame */
-.magic-frame::before {
-  content:"";position:fixed;top:0;left:0;width:100%;height:100%;
-  border-radius:25px;box-shadow:0 0 40px 10px #ff66cc;
-  animation:pulse 6s ease-in-out infinite alternate;
-  pointer-events:none;z-index:-1;
-}
-@keyframes pulse{0%{opacity:.7;box-shadow:0 0 20px 5px #ff66cc;}100%{opacity:1;box-shadow:0 0 60px 20px #ff99ff;}}
-
-/* ✨ Text glow */
-.glow-text{text-shadow:0 0 10px #ff99ff,0 0 20px #ff66cc;}
-.glow-border{box-shadow:0 0 15px 4px #ff66ff;transition:.3s;}
-.glow-border:hover{box-shadow:0 0 30px 10px #ff99ff;transform:scale(1.03);}
-
-/* ✨ Floating animation */
-@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
-.float{animation:float 6s ease-in-out infinite;}
-
-/* ✨ Scrollbar */
-::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-thumb{background:#ff66ff;border-radius:4px;}
-section{scroll-margin-top:80px;}
-
-/* 🤖 Chatbot Styles */
-#chat-container {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 300px;
-  max-height: 400px;
-  background: rgba(26, 0, 51, 0.95);
-  border: 2px solid #ff66cc;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
-  box-shadow: 0 0 20px #ff66cc;
-  display: none;
+@keyframes gradientMove {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-25%, -25%); }
+    100% { transform: translate(0,0); }
 }
 
-#chat-header {
-  background: #ff66cc;
-  padding: 10px;
-  border-radius: 12px 12px 0 0;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-between;
+/* FLOATING BLOBS */
+body::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle, rgba(255,0,200,0.4) 0%, transparent 60%) 20% 30%,
+        radial-gradient(circle, rgba(255,102,204,0.3) 0%, transparent 60%) 70% 60%,
+        radial-gradient(circle, rgba(106,0,255,0.3) 0%, transparent 60%) 50% 80%;
+    animation: floatBlobs 15s infinite alternate ease-in-out;
+    z-index: -1;
 }
 
-#chat-messages {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-  font-size: 0.9rem;
-  max-height: 250px;
+@keyframes floatBlobs {
+    0% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-40px) translateX(20px); }
+    100% { transform: translateY(20px) translateX(-20px); }
 }
 
-.bot-msg { color: #ff99ff; margin-bottom: 8px; }
-.user-msg { color: #fff; margin-bottom: 8px; text-align: right; }
-
-#chat-input-area {
-  display: flex;
-  padding: 10px;
-  border-top: 1px solid #ff66cc;
+/* SPARKLES */
+.sparkle {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow: 0 0 8px white, 0 0 12px #ff66cc;
+    animation: sparkleAnim 3s infinite ease-in-out;
 }
 
-#chat-input {
-  flex: 1;
-  background: transparent;
-  border: 1px solid #ff66cc;
-  border-radius: 5px;
-  color: white;
-  padding: 5px;
-  outline: none;
+@keyframes sparkleAnim {
+    0%,100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(2); }
 }
 
-#chat-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #ff66cc;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 1001;
-  box-shadow: 0 0 15px #ff66cc;
-  font-size: 30px;
+header { text-align: center; margin-bottom: 20px; }
+
+h1 {
+    text-shadow: 0 0 20px #ff7eb3, 0 0 40px #ff00cc, 0 0 70px #ff66cc;
+    font-size: 2.7rem;
 }
+
+.controls-top {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 15px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 0, 200, 0.6);
+    box-shadow: 0 0 25px rgba(255,0,200,0.6);
+}
+
+input[type="date"], .subject-input {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ff00cc;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0 0 12px #ff00cc, 0 0 20px #ff66cc;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.section {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+    border-radius: 25px;
+    padding: 20px;
+    width: 350px;
+    border: 1px solid rgba(255, 0, 200, 0.4);
+    box-shadow: 0 0 30px rgba(255,0,200,0.5);
+}
+
+.section h2 {
+    text-align: center;
+    color: #ff9de6;
+    text-shadow: 0 0 15px #ff00cc, 0 0 30px #ff66cc;
+}
+
+.member-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.member-row:hover {
+    background: rgba(255, 0, 200, 0.25);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff00cc, 0 0 35px #ff66cc;
+}
+
+.switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #555;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background: #ff00cc;
+    box-shadow: 0 0 20px #ff00cc, 0 0 40px #ff66cc;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.done-container { margin-top: 30px; }
+
+.done-btn {
+    background: linear-gradient(90deg, #ff00cc, #ff66cc, #ff00cc);
+    color: white;
+    border: none;
+    padding: 16px 90px;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(255, 0, 200, 0.9);
+}
+
+#summaryPanel {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(20, 0, 20, 0.85);
+    border-radius: 25px;
+    padding: 25px;
+    display: none;
+    border: 2px solid #ff00cc;
+    margin-top: 20px;
+    box-shadow: 0 0 35px #ff00cc, 0 0 60px #ff66cc;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 18px;
+    border-radius: 20px;
+}
+
+.present-text {
+    color: #ffb3f0;
+    text-shadow: 0 0 15px #ff00cc;
+}
+
+.absent-text {
+    color: #ff6699;
+    text-shadow: 0 0 15px #ff4d88;
+}
+
+.name-list {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-top: 10px;
+    white-space: pre-line;
+}
+
+html { scroll-behavior: smooth; }
 </style>
 </head>
 
 <body>
 
-<div class="mist"></div>
-<div class="stars"></div>
-<div class="sparkles"></div>
-<div class="magic-frame"></div>
+<header>
+    <h1>BSIT-2B Attendance</h1>
+</header>
 
-<nav class="py-3 px-2 text-center text-white font-bold text-sm sm:text-base flex flex-wrap justify-center gap-3 sticky top-0 z-50 bg-pink-700/40 backdrop-blur-md">
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#resume">Resume</a>
-  <a href="#certificates">Certificates</a>
-  <a href="#simulation">Simulation</a>
-  <a href="#skills">Skills</a>
-  <a href="#experience">Experience</a>
-  <a href="#tutorials">Tutorials</a>
-  <a href="#contact">Contact</a>
-</nav>
+<div class="controls-top">
+    <input type="date" id="attendanceDate">
+    <input type="text" class="subject-input" id="subjectName" placeholder="Enter Subject Name">
+</div>
 
-<section id="home" class="flex flex-col items-center text-center px-4 py-16">
-  <h1 class="text-3xl sm:text-4xl font-bold mb-6 glow-text whitespace-nowrap">Welcome to My Portfolio!</h1>
-  <div class="relative mb-6">
-    <img src="Just me.jpg" alt="Celyn" class="w-40 h-40 rounded-full border-4 border-pink-500 object-cover glow-border float">
-  </div>
-</section>
-
-<section id="about" class="text-center px-4 py-12">
-  <h2 class="text-3xl font-bold mb-6 text-pink-400 glow-text whitespace-nowrap">✨ About Me ✨</h2>
-  <div class="max-w-md sm:max-w-2xl mx-auto text-gray-200">
-    <p>I am <span class="font-bold text-white">Celyn</span>, a 2nd Year BSIT Student. I enjoy creating magical digital experiences through technology and design.</p>
-  </div>
-</section>
-
-<section id="resume" class="text-center px-4 py-12">
-  <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">📄 My Resume</h2>
-  <div class="max-w-xs mx-auto">
-    <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-4 glow-border float">
-      <img src="resume.png" alt="My Resume" class="w-full rounded-lg mb-4">
-      <a href="resume.png" download class="inline-block py-2 px-6 bg-pink-600 text-white font-bold rounded-lg hover:bg-pink-700 transition">Download</a>
+<div class="container">
+    <div class="section">
+        <h2>Girls 🌸</h2>
+        <div id="girlsList"></div>
     </div>
-  </div>
-</section>
-
-<section id="certificates" class="text-center px-4 py-12">
-  <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">📜 IT Training Certificate</h2>
-  <div class="flex flex-col items-center gap-8 max-w-2xl mx-auto">
-    <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float w-full">
-      <p class="text-pink-300 font-semibold mb-2">March 10, 2026</p>
-      <p class="text-gray-200 text-sm mb-4">A touch of magic in technical training.</p>
-      <img src="March 10.png" class="w-full h-auto rounded-lg border border-pink-400 shadow-md" alt="Training Certificate 1">
+    <div class="section">
+        <h2>Boys 💎</h2>
+        <div id="boysList"></div>
     </div>
-    <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float w-full">
-      <p class="text-pink-300 font-semibold mb-2">March 12, 2026</p>
-      <p class="text-gray-200 text-sm mb-4">Enchanted skills mastered with care.</p>
-      <img src="March 12.png" class="w-full h-auto rounded-lg border border-pink-400 shadow-md" alt="Training Certificate 2">
-    </div>
-  </div>
-</section>
+</div>
 
-<section id="simulation" class="text-center px-4 py-12">
-  <h2 class="text-3xl font-bold mb-10 text-pink-300 glow-text whitespace-nowrap">🧪 My Simulation</h2>
-  <div class="max-w-4xl mx-auto bg-[#1a0033]/80 border border-pink-500 rounded-3xl p-6 shadow-[0_0_25px_#ff00cc]">
-    <h3 class="text-2xl font-bold mb-6 text-white">BSIT-2B Attendance System</h3>
-    
-    <div class="flex flex-wrap justify-center gap-4 mb-8">
-      <input type="date" id="attendanceDate" class="bg-black/50 border border-pink-500 text-white p-2 rounded-lg outline-none">
-      <input type="text" id="subjectName" placeholder="Subject Name" class="bg-black/50 border border-pink-500 text-white p-2 rounded-lg outline-none">
-    </div>
+<div class="done-container">
+    <button class="done-btn" onclick="generateSummary()">DONE ✨</button>
+</div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-      <div class="bg-white/5 p-4 rounded-2xl border border-pink-400/30">
-        <h4 class="text-pink-300 font-bold mb-4">Girls 🌸</h4>
-        <div id="girlsList" class="space-y-2 text-left h-64 overflow-y-auto pr-2"></div>
-      </div>
-      <div class="bg-white/5 p-4 rounded-2xl border border-blue-400/30">
-        <h4 class="text-blue-300 font-bold mb-4">Boys 💎</h4>
-        <div id="boysList" class="space-y-2 text-left h-64 overflow-y-auto pr-2"></div>
-      </div>
-    </div>
+<div id="summaryPanel">
+    <h2 style="text-align:center; color:#ff7eb3;">Attendance Report</h2>
+    <p id="reportMeta" style="text-align:center;"></p>
 
-    <button onclick="generateSummary()" class="px-16 py-3 bg-pink-600 rounded-full font-bold hover:bg-pink-700 transition transform hover:scale-105 shadow-lg">DONE ✨</button>
-
-    <div id="summaryPanel" class="hidden mt-8 p-6 bg-black/60 rounded-2xl border border-pink-500 text-left">
-      <h3 class="text-xl font-bold text-center text-pink-400 mb-2">Attendance Report</h3>
-      <p id="reportMeta" class="text-center text-gray-400 mb-6"></p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <h4 class="text-green-400 font-bold">Present: <span id="countPresent">0</span></h4>
-          <div id="listPresent" class="text-xs mt-2 whitespace-pre-line text-gray-300 leading-relaxed"></div>
+    <div class="stats-grid">
+        <div class="stat-box">
+            <h3 class="present-text">Present: <span id="countPresent">0</span></h3>
+            <div id="listPresent" class="name-list"></div>
         </div>
-        <div>
-          <h4 class="text-red-400 font-bold">Absent: <span id="countAbsent">0</span></h4>
-          <div id="listAbsent" class="text-xs mt-2 whitespace-pre-line text-gray-300 leading-relaxed"></div>
+        <div class="stat-box">
+            <h3 class="absent-text">Absent: <span id="countAbsent">0</span></h3>
+            <div id="listAbsent" class="name-list"></div>
         </div>
-      </div>
     </div>
-  </div>
-</section>
-
-<section id="skills" class="text-center px-4 py-12">
-  <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">🛠️ My Skills</h2>
-  <div class="flex flex-col items-center gap-8 max-w-md mx-auto">
-    <img src="banner.jpg" class="w-full h-auto rounded-lg glow-border float">
-    <img src="chessboard.png" class="w-full h-auto rounded-lg glow-border float">
-    <img src="figma ecommerce.jpg" class="w-full h-auto rounded-lg glow-border float">
-    <img src="product design.png" class="w-full h-auto rounded-lg glow-border float">
-    <img src="tshirt layout.png" class="w-full h-auto rounded-lg glow-border float">
-  </div>
-</section>
-
-<section id="experience" class="text-center px-4 py-12">
-  <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">🏆 Experience</h2>
-  <div class="max-w-md sm:max-w-3xl mx-auto space-y-8 text-center">
-    
-    <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float">
-      <h3 class="text-2xl font-semibold text-pink-300 glow-text mb-2">Video Editing Champion</h3>
-      <p class="text-gray-300 mb-2">🏅 Year: 2021</p>
-      <p class="text-gray-200 text-sm mb-4">PNP Anniversary Video Editing Contest.</p>
-      <div class="flex flex-col items-center gap-6">
-        <img src="film maker pro.png" class="w-24 h-24 rounded-lg glow-border">
-        <img src="kinemaster.png" class="w-24 h-24 rounded-lg glow-border">
-      </div>
-    </div>
-
-    <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float">
-      <h3 class="text-2xl font-semibold text-pink-300 glow-text mb-2">Tarpapel Editor in Birthdays</h3>
-      <p class="text-pink-300 font-medium mb-2">🎨 Year: 2020</p>
-      <p class="text-gray-200 text-sm mb-6 max-w-lg mx-auto">Designed personalized layouts using Canva.</p>
-      <div class="flex flex-col items-center">
-        <div class="relative w-28 h-28 bg-[#0a0015] border-2 border-pink-600 rounded-xl shadow-[0_0_15px_#ff66cc] flex items-center justify-center">
-          <img src="canva.jpeg" class="w-12 h-12 rounded-lg" alt="Canva Logo">
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="tutorials" class="text-center px-4 py-12">
-  <h2 class="text-3xl font-bold mb-10 text-pink-300 glow-text whitespace-nowrap">✨ YouTube Tutorials</h2>
-  <div class="flex flex-col items-center gap-8 max-w-2xl mx-auto">
-    <iframe class="rounded-xl w-full h-64 glow-border" src="https://www.youtube.com/embed/wCEtWz5imUs"></iframe>
-    <iframe class="rounded-xl w-full h-64 glow-border" src="https://www.youtube.com/embed/ezldKx-jPag"></iframe>
-  </div>
-</section>
-
-<section id="tools" class="text-center px-4 py-12">
-  <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">🪄 Tools I Used</h2>
-  <div class="flex flex-row justify-center items-center gap-4 sm:gap-6">
-    <img src="canva.jpeg" class="w-16 h-16 sm:w-24 sm:h-24 rounded-lg glow-border">
-    <img src="figma.jpeg" class="w-16 h-16 sm:w-24 sm:h-24 rounded-lg glow-border">
-    <img src="Adobe Photoshop.jpeg" class="w-16 h-16 sm:w-24 sm:h-24 rounded-lg glow-border">
-    <img src="Adobe premiere.jpeg" class="w-16 h-16 sm:w-24 sm:h-24 rounded-lg glow-border">
-  </div>
-</section>
-
-<section id="contact" class="text-center px-4 py-12">
-  <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">💌 Let's Connect</h2>
-  <div class="max-w-sm mx-auto p-6 bg-[#1a0033]/70 rounded-2xl border border-pink-600 glow-border">
-    <form class="space-y-4">
-      <input type="text" placeholder="Name" class="w-full p-2 border border-pink-400 rounded bg-transparent text-white">
-      <input type="email" placeholder="Email" class="w-full p-2 border border-pink-400 rounded bg-transparent text-white">
-      <textarea placeholder="Message" class="w-full p-2 border border-pink-400 rounded bg-transparent text-white"></textarea>
-      <button class="w-full py-2 bg-pink-600 rounded font-bold hover:bg-pink-700 transition">Send</button>
-    </form>
-  </div>
-</section>
-
-<div id="chat-toggle" onclick="toggleChat()">🤖</div>
-<div id="chat-container">
-  <div id="chat-header"><span>Celyn's Bot</span><button onclick="toggleChat()">✖</button></div>
-  <div id="chat-messages"><div class="bot-msg">✨ Hi! How can I help?</div></div>
-  <div id="chat-input-area"><input type="text" id="chat-input" placeholder="Type..." onkeypress="handleChat(event)"></div>
 </div>
 
 <script>
-  function toggleChat() {
-    const chat = document.getElementById('chat-container');
-    chat.style.display = (chat.style.display === 'none' || chat.style.display === '') ? 'flex' : 'none';
-  }
-  function handleChat(e) {
-    if (e.key === 'Enter') {
-      const input = document.getElementById('chat-input');
-      const msg = input.value.trim();
-      if (msg) { addMessage(msg, 'user-msg'); input.value = ''; setTimeout(() => botResponse(msg), 500); }
-    }
-  }
-  function addMessage(t, c) {
-    const d = document.createElement('div'); d.className = c; d.innerText = t;
-    const m = document.getElementById('chat-messages'); m.appendChild(d); m.scrollTop = m.scrollHeight;
-  }
-  function botResponse(u) {
-    let r = "That's magical!";
-    const t = u.toLowerCase();
-    if (t.includes("resume")) r = "Download my resume in the section above! 📄";
-    else if (t.includes("cert")) r = "I have two IT Training Certificates! 🏆";
-    else if (t.includes("simulation") || t.includes("attendance")) r = "Check out the BSIT-2B Attendance system in the Simulation section! ✨";
-    addMessage(r, 'bot-msg');
-  }
+const girls = ["Jocelyn Semillano","Andrea Jean Occeña","Gene Mae Caramihan","Jessa Erosido","Jessa Hilardino","Kristine Joy Basa","Lena Bahian","Rechelle An Casilangan","Roxan Pracio","Shannon De La Cruz","Jeca Dagumboy","Martina Cabrillos","Nera Bahilot","Sheila Marie Lañojan","Trisha Agravante"];
+const boys = ["Archie Vidal","John Rogen Bullag","Mario Nebres Jr.","AjhannAylle Marfil","Anthony Espinosa","Dave Rivera","Jeffrey Coriento","Kenneth Espinosa","Kevin James Plaza","Luke Axel Barrocum","Mark Angelou Banatasa","Nathaniel Pojas","Paul John Malba","Rodel Cepeda"];
 
-  // Attendance Logic
-  const girls = ["Jocelyn Semillano","Andrea Jean Occeña","Gene Mae Caramihan","Jessa Erosido","Jessa Hilardino","Kristine Joy Basa","Lena Bahian","Rechelle An Casilangan","Roxan Pracio","Shannon De La Cruz","Jeca Dagumboy","Martina Cabrillos","Nera Bahilot","Sheila Marie Lañojan","Trisha Agravante"];
-  const boys = ["Archie Vidal","John Rogen Bullag","Mario Nebres Jr.","AjhannAylle Marfil","Anthony Espinosa","Dave Rivera","Jeffrey Coriento","Kenneth Espinosa","Kevin James Plaza","Luke Axel Barrocum","Mark Angelou Banatasa","Nathaniel Pojas","Paul John Malba","Rodel Cepeda"];
+document.getElementById('attendanceDate').valueAsDate = new Date();
 
-  document.getElementById('attendanceDate').valueAsDate = new Date();
-
-  function renderList(list, elementId) {
+function renderList(list, elementId) {
     const container = document.getElementById(elementId);
     list.sort().forEach(name => {
-      container.innerHTML += `
-      <div class="flex justify-between items-center p-2 bg-white/5 rounded-lg mb-1 hover:bg-pink-500/20 transition">
-          <span class="text-sm">${name}</span>
-          <input type="checkbox" class="att-check w-4 h-4 accent-pink-500 cursor-pointer" data-name="${name}">
-      </div>`;
+        container.innerHTML += `
+        <div class="member-row">
+            <span>${name}</span>
+            <label class="switch">
+                <input type="checkbox" class="att-check" data-name="${name}">
+                <span class="slider"></span>
+            </label>
+        </div>`;
     });
-  }
+}
 
-  renderList(girls, 'girlsList');
-  renderList(boys, 'boysList');
+renderList(girls, 'girlsList');
+renderList(boys, 'boysList');
 
-  function generateSummary() {
+function generateSummary() {
     const checks = document.querySelectorAll('.att-check');
-    let present = []; let absent = [];
+    let present = [];
+    let absent = [];
+
     checks.forEach(check => {
-      const name = check.getAttribute('data-name');
-      if (check.checked) present.push(name); else absent.push(name);
+        const name = check.getAttribute('data-name');
+        if (check.checked) present.push(name);
+        else absent.push(name);
     });
+
     document.getElementById('countPresent').innerText = present.length;
     document.getElementById('countAbsent').innerText = absent.length;
-    document.getElementById('listPresent').innerText = present.length > 0 ? present.map(n => "• " + n).join("\n") : "None";
-    document.getElementById('listAbsent').innerText = absent.length > 0 ? absent.map(n => "• " + n).join("\n") : "None";
+
+    document.getElementById('listPresent').innerText =
+        present.length > 0 ? present.map(name => "• " + name).join("\n\n") : "None";
+
+    document.getElementById('listAbsent').innerText =
+        absent.length > 0 ? absent.map(name => "• " + name).join("\n\n") : "None";
+
     const dateVal = document.getElementById('attendanceDate').value;
     const subVal = document.getElementById('subjectName').value || "Class Session";
     document.getElementById('reportMeta').innerText = `${subVal} — ${dateVal}`;
+
     const panel = document.getElementById('summaryPanel');
-    panel.classList.remove('hidden');
     panel.style.display = 'block';
-    panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* SPARKLES */
+for (let i = 0; i < 40; i++) {
+    let star = document.createElement("div");
+    star.className = "sparkle";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(star);
+}
 </script>
+
 </body>
 </html>
