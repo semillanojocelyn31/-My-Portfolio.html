@@ -175,7 +175,7 @@ section{scroll-margin-top:80px;}
     <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float w-full">
       <p class="text-pink-300 font-semibold mb-2">March 10, 2026</p>
       <p class="text-gray-200 text-sm mb-4">A touch of magic in technical training.</p>
-      <img src="March 10.jpg" class="w-full h-auto rounded-lg border border-pink-400 shadow-md" alt="Training Certificate 1">
+      <img src="March10.jpg" class="w-full h-auto rounded-lg border border-pink-400 shadow-md" alt="Training Certificate 1">
     </div>
     <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float w-full">
       <p class="text-pink-300 font-semibold mb-2">March 12, 2026</p>
