@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -46,31 +47,29 @@
         .glow-border{box-shadow:0 0 15px 4px #ff66ff;transition:.3s; overflow: hidden; }
         .glow-border:hover{box-shadow:0 0 30px 10px #ff99ff;transform:scale(1.03);}
 
+        /* ✨ Glowing Attendance System Elements */
+        .neon-card {
+            background: rgba(26, 0, 51, 0.6);
+            border: 2px solid #ff66cc;
+            box-shadow: 0 0 15px rgba(255, 102, 204, 0.4), inset 0 0 10px rgba(255, 102, 204, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .neon-input {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid #ff66cc;
+            box-shadow: 0 0 8px #ff66cc;
+            transition: 0.3s;
+        }
+        .neon-input:focus {
+            box-shadow: 0 0 15px #ff99ff;
+            border-color: #ff99ff;
+        }
+        .girl-item:hover { background: rgba(255, 102, 204, 0.3); box-shadow: 0 0 10px #ff66cc; }
+        .boy-item:hover { background: rgba(0, 153, 255, 0.3); box-shadow: 0 0 10px #0099ff; }
+
         /* ✨ Floating animation */
         @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
         .float{animation:float 6s ease-in-out infinite;}
-
-        /* ✨ Attendance Special Glows */
-        .neon-card {
-            background: rgba(43, 0, 58, 0.6);
-            backdrop-filter: blur(10px);
-            border: 2px solid #ff00cc;
-            box-shadow: 0 0 15px rgba(255, 0, 204, 0.4), inset 0 0 15px rgba(255, 0, 204, 0.2);
-            transition: 0.4s;
-        }
-        .neon-card:hover {
-            box-shadow: 0 0 25px rgba(255, 0, 204, 0.7);
-            border-color: #ff99ff;
-        }
-        .attendance-input {
-            background: rgba(0,0,0,0.5);
-            border: 1px solid #ff66cc;
-            box-shadow: 0 0 10px rgba(255, 102, 204, 0.3);
-        }
-        .attendance-input:focus {
-            box-shadow: 0 0 20px #ff66cc;
-            border-color: #fff;
-        }
 
         /* ✨ Scrollbar */
         ::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-thumb{background:#ff66ff;border-radius:4px;}
@@ -200,7 +199,7 @@
 <section id="about" class="text-center px-4 py-12">
     <h2 class="text-3xl font-bold mb-6 text-pink-400 glow-text whitespace-nowrap">✨ About Me ✨</h2>
     <div class="max-w-md sm:max-w-2xl mx-auto text-gray-200">
-        <p>I am <span class="font-bold text-white">Jocelyn Semillano</span>, a dedicated 2nd Year BSIT Student from BSIT-2B. Based in Moises Padilla, Negros Occidental, I enjoy creating magical digital experiences through technology and design.</p>
+        <p>I am <span class="font-bold text-white">Jocelyn Semillano</span>, better known as <span class="text-pink-400">Celyn</span>, a 2nd Year BSIT Student. I enjoy creating magical digital experiences through technology and design.</p>
     </div>
 </section>
 
@@ -240,40 +239,39 @@
 </section>
 
 <section id="simulation" class="text-center px-4 py-12">
-    <h2 class="text-4xl font-bold mb-10 text-pink-300 glow-text whitespace-nowrap">🧪 Magical Simulation</h2>
-    <div class="max-w-4xl mx-auto neon-card rounded-3xl p-8">
+    <h2 class="text-3xl font-bold mb-10 text-pink-300 glow-text whitespace-nowrap">🧪 My Simulation</h2>
+    <div class="max-w-4xl mx-auto neon-card rounded-3xl p-6">
         <h3 class="text-2xl font-bold mb-6 text-white glow-text">BSIT-2B Attendance System</h3>
         
         <div class="flex flex-wrap justify-center gap-4 mb-8">
-            <input type="date" id="attendanceDate" class="attendance-input text-white p-3 rounded-xl outline-none transition">
-            <input type="text" id="subjectName" placeholder="✨ Subject Name" class="attendance-input text-white p-3 rounded-xl outline-none transition w-full sm:w-64">
+            <input type="date" id="attendanceDate" class="neon-input text-white p-2 rounded-lg outline-none">
+            <input type="text" id="subjectName" placeholder="Subject Name" class="neon-input text-white p-2 rounded-lg outline-none">
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div class="bg-white/5 p-6 rounded-2xl border border-pink-500/50 shadow-[0_0_15px_rgba(255,102,204,0.2)]">
-                <h4 class="text-pink-300 font-bold mb-4 text-xl">Girls 🌸</h4>
-                <div id="girlsList" class="space-y-3 text-left h-72 overflow-y-auto pr-2 custom-scroll"></div>
+            <div class="bg-pink-900/20 p-4 rounded-2xl border border-pink-500/50 shadow-[0_0_10px_rgba(255,102,204,0.3)]">
+                <h4 class="text-pink-300 font-bold mb-4">Girls 🌸</h4>
+                <div id="girlsList" class="space-y-2 text-left h-64 overflow-y-auto pr-2"></div>
             </div>
-            <div class="bg-white/5 p-6 rounded-2xl border border-blue-500/50 shadow-[0_0_15px_rgba(102,204,255,0.2)]">
-                <h4 class="text-blue-300 font-bold mb-4 text-xl">Boys 💎</h4>
-                <div id="boysList" class="space-y-3 text-left h-72 overflow-y-auto pr-2 custom-scroll"></div>
+            <div class="bg-blue-900/20 p-4 rounded-2xl border border-blue-500/50 shadow-[0_0_10px_rgba(0,153,255,0.3)]">
+                <h4 class="text-blue-300 font-bold mb-4">Boys 💎</h4>
+                <div id="boysList" class="space-y-2 text-left h-64 overflow-y-auto pr-2"></div>
             </div>
         </div>
 
-        <button onclick="generateSummary()" class="px-20 py-4 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full font-bold hover:from-pink-500 hover:to-purple-500 transition transform hover:scale-110 shadow-[0_0_20px_#ff00cc] uppercase tracking-widest">Generate Report ✨</button>
+        <button onclick="generateSummary()" class="px-16 py-3 bg-pink-600 rounded-full font-bold hover:bg-pink-700 transition transform hover:scale-105 shadow-[0_0_20px_#ff66cc] border-2 border-pink-300">DONE ✨</button>
 
-        <div id="summaryPanel" class="hidden mt-8 p-8 bg-black/80 rounded-2xl border-2 border-pink-500 text-left shadow-[0_0_30px_rgba(255,0,204,0.4)]">
-            <h3 class="text-2xl font-bold text-center text-pink-400 mb-2 glow-text">Class Attendance Report</h3>
-            <p id="reportMeta" class="text-center text-gray-400 mb-6 italic"></p>
-            <hr class="border-pink-500/30 mb-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <div class="bg-green-500/10 p-4 rounded-xl border border-green-500/30">
-                    <h4 class="text-green-400 font-bold text-lg mb-2">✅ Present: <span id="countPresent">0</span></h4>
-                    <div id="listPresent" class="text-sm whitespace-pre-line text-gray-300 leading-relaxed max-h-40 overflow-y-auto"></div>
+        <div id="summaryPanel" class="hidden mt-8 p-6 bg-black/60 rounded-2xl border-2 border-pink-500 text-left shadow-[0_0_30px_#ff66cc]">
+            <h3 class="text-xl font-bold text-center text-pink-400 mb-2 glow-text">Attendance Report</h3>
+            <p id="reportMeta" class="text-center text-gray-400 mb-6"></p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <h4 class="text-green-400 font-bold text-lg">Present: <span id="countPresent">0</span></h4>
+                    <div id="listPresent" class="text-xs mt-2 whitespace-pre-line text-gray-300 leading-relaxed bg-white/5 p-3 rounded-lg border border-green-500/30"></div>
                 </div>
-                <div class="bg-red-500/10 p-4 rounded-xl border border-red-500/30">
-                    <h4 class="text-red-400 font-bold text-lg mb-2">❌ Absent: <span id="countAbsent">0</span></h4>
-                    <div id="listAbsent" class="text-sm whitespace-pre-line text-gray-300 leading-relaxed max-h-40 overflow-y-auto"></div>
+                <div>
+                    <h4 class="text-red-400 font-bold text-lg">Absent: <span id="countAbsent">0</span></h4>
+                    <div id="listAbsent" class="text-xs mt-2 whitespace-pre-line text-gray-300 leading-relaxed bg-white/5 p-3 rounded-lg border border-red-500/30"></div>
                 </div>
             </div>
         </div>
@@ -300,8 +298,22 @@
         <div class="w-full bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-4 glow-border float">
             <img src="figma ecommerce.jpg" class="w-full h-auto rounded-lg mb-4" alt="Figma E-commerce">
             <div class="flex gap-2">
-                <a href="https://www.figma.com/proto/9MoENLQK7Un0xgoNOWLQIS/" target="_blank" class="flex-1 py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-xs sm:text-sm">View Figma</a>
+                <a href="https://www.figma.com/proto/9MoENLQK7Un0xgoNOWLQIS/?node-id=637-5447&p=f&t=f8hJwc3kD0kQkKZQ-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=637%3A5447&show-proto-sidebar=1" target="_blank" class="flex-1 py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-xs sm:text-sm">View Figma</a>
                 <a href="figma ecommerce.jpg" download class="flex-1 py-2 bg-pink-700 text-white font-bold rounded-lg hover:bg-pink-800 transition text-xs sm:text-sm">Download</a>
+            </div>
+        </div>
+        <div class="w-full bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-4 glow-border float">
+            <img src="product design.png" class="w-full h-auto rounded-lg mb-4" alt="Product Design">
+            <div class="flex gap-2">
+                <a href="product design.png" target="_blank" class="flex-1 py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-xs sm:text-sm">Full View</a>
+                <a href="product design.png" download class="flex-1 py-2 bg-pink-700 text-white font-bold rounded-lg hover:bg-pink-800 transition text-xs sm:text-sm">Download</a>
+            </div>
+        </div>
+        <div class="w-full bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-4 glow-border float">
+            <img src="tshirt layout.png" class="w-full h-auto rounded-lg mb-4" alt="T-Shirt Layout">
+            <div class="flex gap-2">
+                <a href="tshirt layout.png" target="_blank" class="flex-1 py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-xs sm:text-sm">Full View</a>
+                <a href="tshirt layout.png" download class="flex-1 py-2 bg-pink-700 text-white font-bold rounded-lg hover:bg-pink-800 transition text-xs sm:text-sm">Download</a>
             </div>
         </div>
     </div>
@@ -363,7 +375,7 @@
 <div id="chat-toggle" onclick="toggleChat()">🤖</div>
 <div id="chat-container">
     <div id="chat-header"><span>Celyn's Bot</span><button onclick="toggleChat()">✖</button></div>
-    <div id="chat-messages"><div class="bot-msg">✨ Hi there! I am Celyn's Assistant. How can I help you today?</div></div>
+    <div id="chat-messages"><div class="bot-msg">✨ Hi there! I am Celyn's Assistant. I know everything about her portfolio! How can I help you today?</div></div>
     <div id="chat-input-area"><input type="text" id="chat-input" placeholder="Ask about projects, skills, resume..." onkeypress="handleChat(event)"></div>
 </div>
 
@@ -388,44 +400,42 @@
         let r = "";
         const t = u.toLowerCase();
 
-        // 🧠 Enhanced Smart Logic
+        // 🧠 Enhanced Logic pulling from all code sections
         if (t.includes("hello") || t.includes("hi") || t.includes("hey")) {
-            r = "Hello! ✨ I'm Celyn's magical assistant. I can tell you about her BSIT-2B projects, her skills, or her hometown of Moises Padilla! What's on your mind?";
+            r = "Hello! ✨ I'm here to guide you through Jocelyn Semillano's (Celyn) portfolio. What would you like to know?";
         }
-        else if (t.includes("who") || t.includes("name") || t.includes("about")) {
-            r = "This is the portfolio of Jocelyn Semillano (Celyn), a 2nd Year BSIT Student from section BSIT-2B! She is a creative developer passionate about UI/UX and web development. ✨";
+        else if (t.includes("who") || t.includes("about") || t.includes("celyn") || t.includes("jocelyn")) {
+            r = "Celyn (Jocelyn Semillano) is a talented 2nd Year BSIT student who loves creating magical digital experiences with tech and design! 👩‍💻✨";
         }
-        else if (t.includes("location") || t.includes("live") || t.includes("where")) {
-            r = "Celyn is from the beautiful municipality of Moises Padilla in Negros Occidental, Philippines! 🇵🇭";
+        else if (t.includes("project") || t.includes("chessboard") || t.includes("figma") || t.includes("ecommerce") || t.includes("tshirt")) {
+            r = "Celyn has built amazing projects: a Chessboard UI, T-shirt layouts, Product designs, and a high-fidelity Figma E-commerce prototype! Check 'My Projects' for visuals. 🛠️";
         }
-        else if (t.includes("attendance") || t.includes("simulation") || t.includes("system")) {
-            r = "Celyn built a custom BSIT-2B Attendance System! You can see it in the 'Simulation' section. It tracks present and absent students for any subject. 🧪";
-        }
-        else if (t.includes("project") || t.includes("work") || t.includes("figma") || t.includes("ecommerce")) {
-            r = "Celyn has worked on a Chessboard UI, T-shirt layouts, and a full Figma E-commerce prototype! She's also working on hardware projects like the 'HoopShot Vendo'. 🛠️";
-        }
-        else if (t.includes("skill") || t.includes("tool") || t.includes("canva") || t.includes("photoshop")) {
-            r = "She's a pro with Figma, Canva, Adobe Photoshop, and Premiere Pro! She also specializes in HTML, CSS, and PHP for web projects. 🪄";
-        }
-        else if (t.includes("experience") || t.includes("champion") || t.includes("award")) {
-            r = "Celyn is a Video Editing Champion (2021) and has experience as a Tarpapel Editor (2020)! Check out the 'Experience' section for details. 🏆";
+        else if (t.includes("resume") || t.includes("cv") || t.includes("bio")) {
+            r = "You can view or download Celyn's full resume directly in the 'Resume' section. It's ready for you! 📄";
         }
         else if (t.includes("cert") || t.includes("training") || t.includes("march")) {
-            r = "Celyn earned her IT Training Certificates on March 10 and 12, 2026. You can download them in the 'Certificates' section! 📜";
+            r = "Celyn completed IT Training Certificates on March 10 and March 12, 2026. You can see the official documents in the 'Certificates' section! 📜";
         }
-        else if (t.includes("resume") || t.includes("cv")) {
-            r = "You can view or download her full professional resume right in the 'Resume' section above! 📄";
+        else if (t.includes("attendance") || t.includes("simulation") || t.includes("bsit-2b")) {
+            r = "Celyn developed a custom BSIT-2B Attendance System simulation! It features automated lists for girls and boys. Try it out in the 'Simulation' section! 🧪✨";
         }
-        else if (t.includes("contact") || t.includes("email")) {
-            r = "You can reach out to Celyn via the contact form at the bottom, or connect through her social links! 💌";
+        else if (t.includes("skill") || t.includes("tool") || t.includes("software")) {
+            r = "Celyn is proficient in Canva, Figma, Adobe Photoshop, and Adobe Premiere Pro. She's a pro at UI/UX and multimedia editing! 🪄";
+        }
+        else if (t.includes("experience") || t.includes("award") || t.includes("champion") || t.includes("winner")) {
+            r = "Celyn is a 2021 Video Editing Champion and was a Tarpapel Editor in 2020! She has deep experience in Film Maker Pro, KineMaster, and Canva. 🏆";
+        }
+        else if (t.includes("youtube") || t.includes("tutorial") || t.includes("video")) {
+            r = "Celyn shares her knowledge via YouTube tutorials! You can watch them directly in the 'Tutorials' section. 🎥✨";
+        }
+        else if (t.includes("contact") || t.includes("email") || t.includes("message") || t.includes("connect")) {
+            r = "Want to work together? Use the 'Let's Connect' form at the bottom to send Celyn a direct message! 💌";
+        }
+        else if (t.includes("girl") || t.includes("boy") || t.includes("student")) {
+            r = "Celyn's attendance system includes 15 girls (like Andrea, Jessa, and Jocelyn) and 14 boys (like Archie, Kevin, and Mark). Check the list in Simulation! 🌸💎";
         }
         else {
-            const genericRespones = [
-                "That sounds magical! ✨ While I might not know that specific detail, I can tell you all about Celyn's coding skills and BSIT projects!",
-                "Celyn is always learning new things! You should check out her 'Simulation' section to see her latest technical work. 🪄",
-                "I'm still learning about the world, but I know Celyn is a very talented IT student! Is there a project of hers you'd like to see? 🛠️"
-            ];
-            r = genericRespones[Math.floor(Math.random() * genericRespones.length)];
+            r = "I'm not 100% sure about that specific detail, but I know Celyn is a 2nd year BSIT student with skills in Figma, Video Editing, and Web Simulation! Try asking about her projects or certificates. ✨";
         }
         
         addMessage(r, 'bot-msg');
@@ -436,19 +446,20 @@
 
     document.getElementById('attendanceDate').valueAsDate = new Date();
 
-    function renderList(list, elementId) {
+    function renderList(list, elementId, type) {
         const container = document.getElementById(elementId);
         list.sort().forEach(name => {
+            const hoverClass = type === 'girl' ? 'girl-item' : 'boy-item';
             container.innerHTML += `
-            <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl mb-2 border border-pink-500/20 hover:bg-pink-500/30 transition-all duration-300">
+            <div class="flex justify-between items-center p-2 bg-white/5 rounded-lg mb-1 transition ${hoverClass}">
                 <span class="text-sm font-medium">${name}</span>
                 <input type="checkbox" class="att-check w-5 h-5 accent-pink-500 cursor-pointer" data-name="${name}">
             </div>`;
         });
     }
 
-    renderList(girls, 'girlsList');
-    renderList(boys, 'boysList');
+    renderList(girls, 'girlsList', 'girl');
+    renderList(boys, 'boysList', 'boy');
 
     function generateSummary() {
         const checks = document.querySelectorAll('.att-check');
@@ -459,8 +470,8 @@
         });
         document.getElementById('countPresent').innerText = present.length;
         document.getElementById('countAbsent').innerText = absent.length;
-        document.getElementById('listPresent').innerText = present.length > 0 ? present.map(n => "✨ " + n).join("\n") : "None";
-        document.getElementById('listAbsent').innerText = absent.length > 0 ? absent.map(n => "❌ " + n).join("\n") : "None";
+        document.getElementById('listPresent').innerText = present.length > 0 ? present.map(n => "• " + n).join("\n") : "None";
+        document.getElementById('listAbsent').innerText = absent.length > 0 ? absent.map(n => "• " + n).join("\n") : "None";
         const dateVal = document.getElementById('attendanceDate').value;
         const subVal = document.getElementById('subjectName').value || "Class Session";
         document.getElementById('reportMeta').innerText = `${subVal} — ${dateVal}`;
