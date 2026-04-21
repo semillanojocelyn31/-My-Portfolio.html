@@ -29,64 +29,78 @@
         let r = "";
         const t = u.toLowerCase();
 
-        // --- 1. CORE PORTFOLIO RESPONSES (IN-CODE) ---
-        if (t.includes("hello") || t.includes("hi") || t.includes("hey")) {
-            r = "Hello! ✨ I'm Celyn's automated assistant. I can tell you about her projects, skills, or education!";
-        }
-        else if (t.includes("project") || t.includes("work")) {
-            r = "Celyn has projects like the Chessboard UI, T-shirt designs, and a Figma E-commerce prototype. Check the 'My Projects' section! 🛠️";
-        }
-        else if (t.includes("attendance") || t.includes("system") || t.includes("bsit-2b")) {
-            r = "The BSIT-2B Attendance System is an interactive tool Celyn built. You can try the simulation right on this page! 🧪";
-        }
-        else if (t.includes("skills") || t.includes("tools") || t.includes("canva") || t.includes("figma")) {
-            r = "Celyn is skilled in HTML, CSS, PHP, MySQL, and design tools like Figma, Canva, and Adobe Photoshop.";
-        }
-        else if (t.includes("resume") || t.includes("cv") || t.includes("download")) {
-            r = "You can view or download her full resume in the 'Resume' section of this page. 📄";
-        }
-        else if (t.includes("experience") || t.includes("champion")) {
-            r = "Celyn is a Video Editing Champion (2021) and a Tarpapel Editor (2020). She has a strong creative background! 🏆";
-        }
+        // --- AUTOMATED RESPONSE MAPPING ---
 
-        // --- 2. OUT-OF-CODE / GENERAL AI RESPONSES ---
-        else if (t.includes("what is it") || t.includes("information technology")) {
-            r = "Information Technology (IT) is the use of computers, storage, networking, and other physical devices to manage and process data. Celyn is specializing in this field! 💻";
+        // 1. GREETINGS & WELL-BEING
+        if (t.includes("hello") || t.includes("hi") || t.includes("hey") || t.includes("morning") || t.includes("afternoon")) {
+            r = "Hello! ✨ I am Celyn's automated assistant. How can I help you explore this portfolio today?";
         }
         else if (t.includes("how are you")) {
-            r = "I'm doing great! Just here waiting to help visitors learn more about Celyn's work. How about you? ✨";
-        }
-        else if (t.includes("help") || t.includes("homework") || t.includes("advice")) {
-            r = "While I'm a bot for this portfolio, Celyn herself is a great student! You can try contacting her through the form below for academic collaborations. 📚";
-        }
-        else if (t.includes("who made you") || t.includes("your creator")) {
-            r = "I was built by Celyn to help guide visitors through her enchanted portfolio! 🪄";
-        }
-        else if (t.includes("future") || t.includes("goals")) {
-            r = "Celyn aims to become a professional IT specialist, focusing on creating beautiful and functional web applications.";
-        }
-        else if (t.includes("hobbies") || t.includes("like")) {
-            r = "Besides coding, Celyn enjoys creative design, video editing, and exploring new tech trends! ✨";
-        }
-        else if (t.includes("meaning of life") || t.includes("joke")) {
-            r = "The meaning of life? To code beautiful websites, of course! Or maybe 42? 😄 Here's a joke: Why do programmers prefer dark mode? Because light attracts bugs! 🐜";
-        }
-        else if (t.includes("thank") || t.includes("thanks")) {
-            r = "You're very welcome! Feel free to explore the rest of the site. ✨";
-        }
-        else if (t.includes("bye") || t.includes("goodbye")) {
-            r = "Goodbye! Enjoy your stay in Celyn's magical portfolio! 👋";
+            r = "I'm functioning perfectly! I'm here to answer any questions you have about Celyn's IT journey. How are you?";
         }
 
-        // --- 3. CATCH-ALL FOR UNKNOWN INQUIRIES ---
+        // 2. SPECIFIC PORTFOLIO CONTENT (IN-CODE)
+        else if (t.includes("project") || t.includes("work") || t.includes("portfolio")) {
+            r = "Celyn has several projects: an Attendance System, Chessboard UI, T-shirt designs, and a Figma E-commerce prototype. You can find them in the 'My Projects' section! 🛠️";
+        }
+        else if (t.includes("attendance") || t.includes("system") || t.includes("simulation")) {
+            r = "The BSIT-2B Attendance System is an automated tool Celyn developed using web technologies. You can actually test it in the Simulation section! 🧪";
+        }
+        else if (t.includes("resume") || t.includes("cv") || t.includes("background")) {
+            r = "Celyn's resume is available right here! It details her education, skills, and experience. You can even download a copy. 📄";
+        }
+        else if (t.includes("certificate") || t.includes("training") || t.includes("march")) {
+            r = "She completed IT Training in March 2026. The certificates for her achievements are displayed in the 'Certificates' section. 📜";
+        }
+        else if (t.includes("skills") || t.includes("tools") || t.includes("canva") || t.includes("figma") || t.includes("photoshop")) {
+            r = "Celyn is proficient in Figma, Canva, Adobe Photoshop, and Premiere Pro. She also works with HTML, CSS, PHP, and MySQL for web projects! 🪄";
+        }
+
+        // 3. ABOUT CELYN (STUDENT INFO)
+        else if (t.includes("who is") || t.includes("about celyn")) {
+            r = "Celyn is a 2nd Year BSIT Student (Section 2B) who is passionate about frontend development and digital design. ✨";
+        }
+        else if (t.includes("location") || t.includes("live") || t.includes("negros") || t.includes("moises padilla")) {
+            r = "She is based in Moises Padilla, Negros Occidental. 📍";
+        }
+        else if (t.includes("experience") || t.includes("champion") || t.includes("award")) {
+            r = "She was a Video Editing Champion in 2021 and has been a skilled Tarpapel Editor since 2020! 🏆";
+        }
+
+        // 4. GENERAL IT & EXTERNAL QUESTIONS (NOT IN CODE)
+        else if (t.includes("what is it") || t.includes("information technology")) {
+            r = "Information Technology involves using computers and software to manage information. It's the core of everything Celyn builds! 💻";
+        }
+        else if (t.includes("web development") || t.includes("coding")) {
+            r = "Web development is the process of building websites. Celyn uses HTML, CSS, and PHP to create interactive sites like this one!";
+        }
+        else if (t.includes("figma") && t.includes("what")) {
+            r = "Figma is a collaborative design tool used for creating UI/UX prototypes. Celyn used it for her E-commerce project!";
+        }
+        else if (t.includes("help") || t.includes("advice") || t.includes("study")) {
+            r = "Celyn is always open to collaborating on tech projects! You can use the contact form below to send her a message. 📚";
+        }
+        else if (t.includes("purpose") || t.includes("who made you")) {
+            r = "I am an automated assistant created to provide information about Celyn's work and IT skills. 🪄";
+        }
+
+        // 5. CLOSING & THANKS
+        else if (t.includes("thank") || t.includes("thanks")) {
+            r = "You're very welcome! Feel free to ask if you want to know more about a specific project. ✨";
+        }
+        else if (t.includes("bye") || t.includes("goodbye") || t.includes("exit")) {
+            r = "Goodbye! Thank you for visiting Celyn's portfolio. Have a wonderful day! 👋";
+        }
+
+        // 6. SMART FALLBACK (IF INQUIRY IS UNKNOWN)
         else {
-            const genericRespones = [
-                "I'm not quite sure I understand, but I'd love to tell you more about Celyn's IT projects! 🛠️",
-                "Interesting question! ✨ While I focus on Celyn's work, you can use the navigation links to find more information.",
-                "I'm still learning! Try asking about her 'Skills', 'Certificates', or the 'Attendance System'.",
-                "That sounds complex! 🪄 Why not check out Celyn's 'YouTube Tutorials' for some tech insights?"
+            const fallbacks = [
+                "That's an interesting question! ✨ While I might not have a specific answer for that, I can definitely tell you about Celyn's 'Projects' or 'Attendance System'.",
+                "I'm still learning! 🪄 Try asking me about Celyn's 'Skills', her 'Education', or her 'YouTube Tutorials'.",
+                "I'm not sure about that, but you should check out the 'Simulation' section to see her coding in action! 🧪",
+                "Could you try rephrasing? I'm programmed to talk about Celyn's IT Portfolio and her background in BSIT. 👩‍💻"
             ];
-            r = genericRespones[Math.floor(Math.random() * genericRespones.length)];
+            r = fallbacks[Math.floor(Math.random() * fallbacks.length)];
         }
         
         addMessage(r, 'bot-msg');
