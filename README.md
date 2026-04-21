@@ -163,8 +163,8 @@ section{scroll-margin-top:80px;}
   <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">📄 My Resume</h2>
   <div class="max-w-xs mx-auto">
     <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-4 glow-border float">
-      <img src="resume.png" alt="My Resume" class="w-full rounded-lg mb-4">
-      <a href="resume.png" download class="inline-block py-2 px-6 bg-pink-600 text-white font-bold rounded-lg hover:bg-pink-700 transition">Download</a>
+      <img src="resume.jpg" alt="My Resume" class="w-full rounded-lg mb-4">
+      <a href="resume.jpg" download class="inline-block py-2 px-6 bg-pink-600 text-white font-bold rounded-lg hover:bg-pink-700 transition">Download</a>
     </div>
   </div>
 </section>
@@ -175,12 +175,12 @@ section{scroll-margin-top:80px;}
     <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float w-full">
       <p class="text-pink-300 font-semibold mb-2">March 10, 2026</p>
       <p class="text-gray-200 text-sm mb-4">A touch of magic in technical training.</p>
-      <img src="March 10.png" class="w-full h-auto rounded-lg border border-pink-400 shadow-md" alt="Training Certificate 1">
+      <img src="March 10.jpg" class="w-full h-auto rounded-lg border border-pink-400 shadow-md" alt="Training Certificate 1">
     </div>
     <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float w-full">
       <p class="text-pink-300 font-semibold mb-2">March 12, 2026</p>
       <p class="text-gray-200 text-sm mb-4">Enchanted skills mastered with care.</p>
-      <img src="March 12.png" class="w-full h-auto rounded-lg border border-pink-400 shadow-md" alt="Training Certificate 2">
+      <img src="March 12.jpg" class="w-full h-auto rounded-lg border border-pink-400 shadow-md" alt="Training Certificate 2">
     </div>
   </div>
 </section>
