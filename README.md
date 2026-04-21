@@ -59,80 +59,59 @@
             position: fixed;
             bottom: 90px;
             right: 20px;
-            width: 320px;
-            max-height: 450px;
-            background: rgba(26, 0, 51, 0.98);
+            width: 300px;
+            max-height: 400px;
+            background: rgba(26, 0, 51, 0.95);
             border: 2px solid #ff66cc;
             border-radius: 15px;
             display: flex;
             flex-direction: column;
             z-index: 1000;
-            box-shadow: 0 0 25px #ff66cc;
+            box-shadow: 0 0 20px #ff66cc;
             display: none;
         }
 
         #chat-header {
-            background: linear-gradient(to right, #ff66cc, #b026ff);
-            padding: 12px;
+            background: #ff66cc;
+            padding: 10px;
             border-radius: 12px 12px 0 0;
             font-weight: bold;
             display: flex;
             justify-content: space-between;
-            align-items: center;
         }
 
         #chat-messages {
             flex: 1;
-            padding: 15px;
+            padding: 10px;
             overflow-y: auto;
-            font-size: 0.85rem;
-            max-height: 300px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            font-size: 0.9rem;
+            max-height: 250px;
         }
 
-        .bot-msg { 
-            background: rgba(255, 102, 204, 0.2);
-            color: #ffccff; 
-            padding: 8px 12px;
-            border-radius: 15px 15px 15px 0;
-            align-self: flex-start;
-            max-width: 85%;
-            border-left: 3px solid #ff66cc;
-        }
-
-        .user-msg { 
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff; 
-            padding: 8px 12px;
-            border-radius: 15px 15px 0 15px;
-            align-self: flex-end;
-            max-width: 85%;
-        }
+        .bot-msg { color: #ff99ff; margin-bottom: 8px; }
+        .user-msg { color: #fff; margin-bottom: 8px; text-align: right; }
 
         #chat-input-area {
             display: flex;
-            padding: 12px;
-            border-top: 1px solid rgba(255, 102, 204, 0.3);
+            padding: 10px;
+            border-top: 1px solid #ff66cc;
         }
 
         #chat-input {
             flex: 1;
-            background: rgba(0,0,0,0.3);
+            background: transparent;
             border: 1px solid #ff66cc;
-            border-radius: 20px;
+            border-radius: 5px;
             color: white;
-            padding: 8px 15px;
+            padding: 5px;
             outline: none;
-            font-size: 0.85rem;
         }
 
         #chat-toggle {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: linear-gradient(45deg, #ff66cc, #b026ff);
+            background: #ff66cc;
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -141,11 +120,9 @@
             justify-content: center;
             cursor: pointer;
             z-index: 1001;
-            box-shadow: 0 0 20px #ff66cc;
+            box-shadow: 0 0 15px #ff66cc;
             font-size: 30px;
-            transition: transform 0.3s;
         }
-        #chat-toggle:hover { transform: scale(1.1); }
     </style>
 </head>
 
@@ -351,16 +328,16 @@
             <input type="text" placeholder="Name" class="w-full p-2 border border-pink-400 rounded bg-transparent text-white">
             <input type="email" placeholder="Email" class="w-full p-2 border border-pink-400 rounded bg-transparent text-white">
             <textarea placeholder="Message" class="w-full p-2 border border-pink-400 rounded bg-transparent text-white"></textarea>
-            <button type="button" class="w-full py-2 bg-pink-600 rounded font-bold hover:bg-pink-700 transition">Send</button>
+            <button class="w-full py-2 bg-pink-600 rounded font-bold hover:bg-pink-700 transition">Send</button>
         </form>
     </div>
 </section>
 
 <div id="chat-toggle" onclick="toggleChat()">🤖</div>
 <div id="chat-container">
-    <div id="chat-header"><span>Celyn's AI Bot</span><button onclick="toggleChat()">✖</button></div>
-    <div id="chat-messages"><div class="bot-msg">✨ Hi there! I am Celyn's AI Assistant. How can I help you today?</div></div>
-    <div id="chat-input-area"><input type="text" id="chat-input" placeholder="Ask about projects, skills, resume..." onkeypress="handleChat(event)"></div>
+    <div id="chat-header"><span>Celyn's Bot</span><button onclick="toggleChat()">✖</button></div>
+    <div id="chat-messages"><div class="bot-msg">✨ Hi! How can I help?</div></div>
+    <div id="chat-input-area"><input type="text" id="chat-input" placeholder="Type..." onkeypress="handleChat(event)"></div>
 </div>
 
 <script>
@@ -372,60 +349,19 @@
         if (e.key === 'Enter') {
             const input = document.getElementById('chat-input');
             const msg = input.value.trim();
-            if (msg) { addMessage(msg, 'user-msg'); input.value = ''; setTimeout(() => botResponse(msg), 600); }
+            if (msg) { addMessage(msg, 'user-msg'); input.value = ''; setTimeout(() => botResponse(msg), 500); }
         }
     }
     function addMessage(t, c) {
         const d = document.createElement('div'); d.className = c; d.innerText = t;
         const m = document.getElementById('chat-messages'); m.appendChild(d); m.scrollTop = m.scrollHeight;
     }
-
     function botResponse(u) {
-        let r = "";
+        let r = "That's magical!";
         const t = u.toLowerCase();
-
-        // 🧠 Keyword-based Logic (Acting like an AI)
-        if (t.includes("hello") || t.includes("hi") || t.includes("hey")) {
-            r = "Hello! ✨ I'm here to guide you through Celyn's portfolio. What would you like to know?";
-        }
-        else if (t.includes("project") || t.includes("work") || t.includes("figma") || t.includes("ecommerce")) {
-            r = "Celyn has several projects like a Chessboard UI, T-shirt layouts, and a full Figma E-commerce prototype! Check the 'My Projects' section. 🛠️";
-        }
-        else if (t.includes("resume") || t.includes("cv") || t.includes("bio")) {
-            r = "You can view or download Celyn's full resume in the 'Resume' section above! 📄";
-        }
-        else if (t.includes("cert") || t.includes("training") || t.includes("march")) {
-            r = "Celyn earned IT Training Certificates in March 2026. They are displayed in the 'Certificates' section! 📜";
-        }
-        else if (t.includes("simulation") || t.includes("attendance") || t.includes("bsit")) {
-            r = "The BSIT-2B Attendance System is an interactive tool Celyn built! You can try it out in the 'Simulation' section. 🧪";
-        }
-        else if (t.includes("skill") || t.includes("tool") || t.includes("canva") || t.includes("photoshop")) {
-            r = "Celyn is skilled in Figma, Canva, Adobe Photoshop, and Premiere Pro. Check out the 'Tools I Used' section for more! 🪄";
-        }
-        else if (t.includes("experience") || t.includes("champion") || t.includes("winner")) {
-            r = "Celyn was a Video Editing Champion in 2021 and a Tarpapel Editor in 2020! Details are in the 'Experience' section. 🏆";
-        }
-        else if (t.includes("tutorial") || t.includes("youtube") || t.includes("video")) {
-            r = "Celyn has educational tutorials on YouTube. You can watch them directly in the 'Tutorials' section! ✨";
-        }
-        else if (t.includes("contact") || t.includes("email") || t.includes("message")) {
-            r = "Feel free to send Celyn a message using the contact form at the bottom of the page! 💌";
-        }
-        else if (t.includes("who") || t.includes("about")) {
-            r = "Celyn is a 2nd Year BSIT Student passionate about digital experiences and IT! 👩‍💻";
-        }
-        // Fallback for general inquiries
-        else {
-            const genericRespones = [
-                "That's an interesting question! ✨ Feel free to explore the different sections of the portfolio to learn more about Celyn.",
-                "I'm not quite sure about that, but I can tell you about Celyn's projects or resume! 🪄",
-                "Celyn is always working on something magical! Check out the 'My Projects' section for her latest work. 🛠️",
-                "I'm a simple AI here to help you navigate. Is there a specific section you'd like to see? ✨"
-            ];
-            r = genericRespones[Math.floor(Math.random() * genericRespones.length)];
-        }
-        
+        if (t.includes("resume")) r = "Download my resume in the section above! 📄";
+        else if (t.includes("cert")) r = "Check out my IT Training Certificates! 🏆";
+        else if (t.includes("simulation") || t.includes("attendance")) r = "Check out the BSIT-2B Attendance system! ✨";
         addMessage(r, 'bot-msg');
     }
 
