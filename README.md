@@ -42,30 +42,17 @@
         }
         @keyframes pulse{0%{opacity:.7;box-shadow:0 0 20px 5px #ff66cc;}100%{opacity:1;box-shadow:0 0 60px 20px #ff99ff;}}
 
-        /* ✨ Text glow */
+        /* ✨ Text & Border Glows */
         .glow-text{text-shadow:0 0 10px #ff99ff,0 0 20px #ff66cc;}
         .glow-border{box-shadow:0 0 15px 4px #ff66ff;transition:.3s; overflow: hidden; }
         .glow-border:hover{box-shadow:0 0 30px 10px #ff99ff;transform:scale(1.03);}
-
-        /* ✨ Glowing Attendance System Elements */
+        
         .neon-card {
             background: rgba(26, 0, 51, 0.6);
             border: 2px solid #ff66cc;
-            box-shadow: 0 0 15px rgba(255, 102, 204, 0.4), inset 0 0 10px rgba(255, 102, 204, 0.2);
+            box-shadow: 0 0 20px rgba(255, 102, 204, 0.4);
             backdrop-filter: blur(10px);
         }
-        .neon-input {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid #ff66cc;
-            box-shadow: 0 0 8px #ff66cc;
-            transition: 0.3s;
-        }
-        .neon-input:focus {
-            box-shadow: 0 0 15px #ff99ff;
-            border-color: #ff99ff;
-        }
-        .girl-item:hover { background: rgba(255, 102, 204, 0.3); box-shadow: 0 0 10px #ff66cc; }
-        .boy-item:hover { background: rgba(0, 153, 255, 0.3); box-shadow: 0 0 10px #0099ff; }
 
         /* ✨ Floating animation */
         @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
@@ -166,7 +153,6 @@
             font-size: 30px;
             transition: transform 0.3s;
         }
-        #chat-toggle:hover { transform: scale(1.1); }
     </style>
 </head>
 
@@ -199,7 +185,7 @@
 <section id="about" class="text-center px-4 py-12">
     <h2 class="text-3xl font-bold mb-6 text-pink-400 glow-text whitespace-nowrap">✨ About Me ✨</h2>
     <div class="max-w-md sm:max-w-2xl mx-auto text-gray-200">
-        <p>I am <span class="font-bold text-white">Jocelyn Semillano</span>, better known as <span class="text-pink-400">Celyn</span>, a 2nd Year BSIT Student. I enjoy creating magical digital experiences through technology and design.</p>
+        <p>I am <span class="font-bold text-white">Jocelyn Semillano</span> (Celyn), a 2nd Year BSIT Student. I enjoy creating magical digital experiences through technology and design.</p>
     </div>
 </section>
 
@@ -209,8 +195,8 @@
         <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-4 glow-border float">
             <img src="resume.jpg" alt="My Resume" class="w-full rounded-lg mb-4">
             <div class="flex gap-2">
-                <a href="resume.jpg" target="_blank" class="flex-1 py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-xs sm:text-sm">Full View</a>
-                <a href="resume.jpg" download class="flex-1 py-2 bg-pink-700 text-white font-bold rounded-lg hover:bg-pink-800 transition text-xs sm:text-sm">Download</a>
+                <a href="resume.jpg" target="_blank" class="flex-1 py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-xs sm:text-sm text-center">Full View</a>
+                <a href="resume.jpg" download class="flex-1 py-2 bg-pink-700 text-white font-bold rounded-lg hover:bg-pink-800 transition text-xs sm:text-sm text-center">Download</a>
             </div>
         </div>
     </div>
@@ -222,56 +208,48 @@
         <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float w-full">
             <p class="text-pink-300 font-semibold mb-2">March 10, 2026</p>
             <img src="March 10.jpg" class="w-full h-auto rounded-lg border border-pink-400 shadow-md mb-4" alt="Training Certificate 1">
-            <div class="flex gap-2">
-                <a href="March 10.jpg" target="_blank" class="flex-1 py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-xs sm:text-sm">Full View</a>
-                <a href="March 10.jpg" download class="flex-1 py-2 bg-pink-700 text-white font-bold rounded-lg hover:bg-pink-800 transition text-xs sm:text-sm">Download</a>
-            </div>
         </div>
         <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float w-full">
             <p class="text-pink-300 font-semibold mb-2">March 12, 2026</p>
             <img src="March 12.jpg" class="w-full h-auto rounded-lg border border-pink-400 shadow-md mb-4" alt="Training Certificate 2">
-            <div class="flex gap-2">
-                <a href="March 12.jpg" target="_blank" class="flex-1 py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-xs sm:text-sm">Full View</a>
-                <a href="March 12.jpg" download class="flex-1 py-2 bg-pink-700 text-white font-bold rounded-lg hover:bg-pink-800 transition text-xs sm:text-sm">Download</a>
-            </div>
         </div>
     </div>
 </section>
 
 <section id="simulation" class="text-center px-4 py-12">
-    <h2 class="text-3xl font-bold mb-10 text-pink-300 glow-text whitespace-nowrap">🧪 My Simulation</h2>
+    <h2 class="text-3xl font-bold mb-10 text-pink-300 glow-text">🧪 My Simulation</h2>
     <div class="max-w-4xl mx-auto neon-card rounded-3xl p-6">
         <h3 class="text-2xl font-bold mb-6 text-white glow-text">BSIT-2B Attendance System</h3>
         
         <div class="flex flex-wrap justify-center gap-4 mb-8">
-            <input type="date" id="attendanceDate" class="neon-input text-white p-2 rounded-lg outline-none">
-            <input type="text" id="subjectName" placeholder="Subject Name" class="neon-input text-white p-2 rounded-lg outline-none">
+            <input type="date" id="attendanceDate" class="bg-black/50 border border-pink-500 text-white p-2 rounded-lg outline-none">
+            <input type="text" id="subjectName" placeholder="Subject Name" class="bg-black/50 border border-pink-500 text-white p-2 rounded-lg outline-none">
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div class="bg-pink-900/20 p-4 rounded-2xl border border-pink-500/50 shadow-[0_0_10px_rgba(255,102,204,0.3)]">
+            <div class="bg-white/5 p-4 rounded-2xl border border-pink-400/30">
                 <h4 class="text-pink-300 font-bold mb-4">Girls 🌸</h4>
                 <div id="girlsList" class="space-y-2 text-left h-64 overflow-y-auto pr-2"></div>
             </div>
-            <div class="bg-blue-900/20 p-4 rounded-2xl border border-blue-500/50 shadow-[0_0_10px_rgba(0,153,255,0.3)]">
+            <div class="bg-white/5 p-4 rounded-2xl border border-blue-400/30">
                 <h4 class="text-blue-300 font-bold mb-4">Boys 💎</h4>
                 <div id="boysList" class="space-y-2 text-left h-64 overflow-y-auto pr-2"></div>
             </div>
         </div>
 
-        <button onclick="generateSummary()" class="px-16 py-3 bg-pink-600 rounded-full font-bold hover:bg-pink-700 transition transform hover:scale-105 shadow-[0_0_20px_#ff66cc] border-2 border-pink-300">DONE ✨</button>
+        <button onclick="generateSummary()" class="w-full max-w-sm py-2 bg-pink-600 rounded font-bold hover:bg-pink-700 transition shadow-[0_0_15px_#ff66cc]">DONE</button>
 
-        <div id="summaryPanel" class="hidden mt-8 p-6 bg-black/60 rounded-2xl border-2 border-pink-500 text-left shadow-[0_0_30px_#ff66cc]">
-            <h3 class="text-xl font-bold text-center text-pink-400 mb-2 glow-text">Attendance Report</h3>
+        <div id="summaryPanel" class="hidden mt-8 p-6 bg-black/60 rounded-2xl border border-pink-500 text-left">
+            <h3 class="text-xl font-bold text-center text-pink-400 mb-2">Attendance Report</h3>
             <p id="reportMeta" class="text-center text-gray-400 mb-6"></p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                    <h4 class="text-green-400 font-bold text-lg">Present: <span id="countPresent">0</span></h4>
-                    <div id="listPresent" class="text-xs mt-2 whitespace-pre-line text-gray-300 leading-relaxed bg-white/5 p-3 rounded-lg border border-green-500/30"></div>
+                    <h4 class="text-green-400 font-bold">Present: <span id="countPresent">0</span></h4>
+                    <div id="listPresent" class="text-xs mt-2 whitespace-pre-line text-gray-300 leading-relaxed"></div>
                 </div>
                 <div>
-                    <h4 class="text-red-400 font-bold text-lg">Absent: <span id="countAbsent">0</span></h4>
-                    <div id="listAbsent" class="text-xs mt-2 whitespace-pre-line text-gray-300 leading-relaxed bg-white/5 p-3 rounded-lg border border-red-500/30"></div>
+                    <h4 class="text-red-400 font-bold">Absent: <span id="countAbsent">0</span></h4>
+                    <div id="listAbsent" class="text-xs mt-2 whitespace-pre-line text-gray-300 leading-relaxed"></div>
                 </div>
             </div>
         </div>
@@ -282,86 +260,29 @@
     <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">🛠️ My Projects</h2>
     <div class="flex flex-col items-center gap-10 max-w-md mx-auto">
         <div class="w-full bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-4 glow-border float">
-            <img src="banner.jpg" class="w-full h-auto rounded-lg mb-4" alt="Banner Design">
-            <div class="flex gap-2">
-                <a href="banner.jpg" target="_blank" class="flex-1 py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-xs sm:text-sm">Full View</a>
-                <a href="banner.jpg" download class="flex-1 py-2 bg-pink-700 text-white font-bold rounded-lg hover:bg-pink-800 transition text-xs sm:text-sm">Download</a>
-            </div>
-        </div>
-        <div class="w-full bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-4 glow-border float">
-            <img src="chessboard.png" class="w-full h-auto rounded-lg mb-4" alt="Chessboard UI">
-            <div class="flex gap-2">
-                <a href="chessboard.png" target="_blank" class="flex-1 py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-xs sm:text-sm">Full View</a>
-                <a href="chessboard.png" download class="flex-1 py-2 bg-pink-700 text-white font-bold rounded-lg hover:bg-pink-800 transition text-xs sm:text-sm">Download</a>
-            </div>
-        </div>
-        <div class="w-full bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-4 glow-border float">
             <img src="figma ecommerce.jpg" class="w-full h-auto rounded-lg mb-4" alt="Figma E-commerce">
-            <div class="flex gap-2">
-                <a href="https://www.figma.com/proto/9MoENLQK7Un0xgoNOWLQIS/?node-id=637-5447&p=f&t=f8hJwc3kD0kQkKZQ-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=637%3A5447&show-proto-sidebar=1" target="_blank" class="flex-1 py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-xs sm:text-sm">View Figma</a>
-                <a href="figma ecommerce.jpg" download class="flex-1 py-2 bg-pink-700 text-white font-bold rounded-lg hover:bg-pink-800 transition text-xs sm:text-sm">Download</a>
-            </div>
-        </div>
-        <div class="w-full bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-4 glow-border float">
-            <img src="product design.png" class="w-full h-auto rounded-lg mb-4" alt="Product Design">
-            <div class="flex gap-2">
-                <a href="product design.png" target="_blank" class="flex-1 py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-xs sm:text-sm">Full View</a>
-                <a href="product design.png" download class="flex-1 py-2 bg-pink-700 text-white font-bold rounded-lg hover:bg-pink-800 transition text-xs sm:text-sm">Download</a>
-            </div>
-        </div>
-        <div class="w-full bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-4 glow-border float">
-            <img src="tshirt layout.png" class="w-full h-auto rounded-lg mb-4" alt="T-Shirt Layout">
-            <div class="flex gap-2">
-                <a href="tshirt layout.png" target="_blank" class="flex-1 py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-xs sm:text-sm">Full View</a>
-                <a href="tshirt layout.png" download class="flex-1 py-2 bg-pink-700 text-white font-bold rounded-lg hover:bg-pink-800 transition text-xs sm:text-sm">Download</a>
-            </div>
+            <a href="https://www.figma.com/proto/9MoENLQK7Un0xgoNOWLQIS/?node-id=637-5447&p=f&t=f8hJwc3kD0kQkKZQ-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=637%3A5447&show-proto-sidebar=1" target="_blank" class="block w-full py-2 bg-pink-500 text-white font-bold rounded-lg hover:bg-pink-600 transition text-center">View Figma Design</a>
         </div>
     </div>
 </section>
 
 <section id="experience" class="text-center px-4 py-12">
     <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">🏆 Experience</h2>
-    <div class="max-w-md sm:max-w-3xl mx-auto space-y-8 text-center">
-        <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float">
-            <h3 class="text-2xl font-semibold text-pink-300 glow-text mb-2">Video Editing Champion</h3>
-            <p class="text-gray-300 mb-2">🏅 Year: 2021</p>
-            <div class="flex flex-col items-center gap-6">
-                <img src="film maker pro.png" class="w-24 h-24 rounded-lg glow-border">
-                <img src="kinemaster.png" class="w-24 h-24 rounded-lg glow-border">
-            </div>
-        </div>
-        <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float">
-            <h3 class="text-2xl font-semibold text-pink-300 glow-text mb-2">Tarpapel Editor</h3>
-            <p class="text-pink-300 font-medium mb-2">🎨 Year: 2020</p>
-            <div class="flex flex-col items-center">
-                <div class="relative w-28 h-28 bg-[#0a0015] border-2 border-pink-600 rounded-xl shadow-[0_0_15px_#ff66cc] flex items-center justify-center">
-                    <img src="canva.jpeg" class="w-12 h-12 rounded-lg" alt="Canva Logo">
-                </div>
-            </div>
-        </div>
+    <div class="max-w-md mx-auto bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border">
+        <h3 class="text-2xl font-semibold text-pink-300 mb-2">Video Editing Champion (2021)</h3>
+        <p class="text-gray-300">Skilled in Film Maker Pro & KineMaster</p>
     </div>
 </section>
 
 <section id="tutorials" class="text-center px-4 py-12">
-    <h2 class="text-3xl font-bold mb-10 text-pink-300 glow-text whitespace-nowrap">✨ YouTube Tutorials</h2>
+    <h2 class="text-3xl font-bold mb-10 text-pink-300 glow-text">✨ YouTube Tutorials</h2>
     <div class="flex flex-col items-center gap-8 max-w-2xl mx-auto">
         <iframe class="rounded-xl w-full h-64 glow-border" src="https://www.youtube.com/embed/wCEtWz5imUs"></iframe>
-        <iframe class="rounded-xl w-full h-64 glow-border" src="https://www.youtube.com/embed/ezldKx-jPag"></iframe>
-    </div>
-</section>
-
-<section id="tools" class="text-center px-4 py-12">
-    <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">🪄 Tools I Used</h2>
-    <div class="flex flex-row justify-center items-center gap-4 sm:gap-6">
-        <img src="canva.jpeg" class="w-16 h-16 sm:w-24 sm:h-24 rounded-lg glow-border">
-        <img src="figma.jpeg" class="w-16 h-16 sm:w-24 sm:h-24 rounded-lg glow-border">
-        <img src="Adobe Photoshop.jpeg" class="w-16 h-16 sm:w-24 sm:h-24 rounded-lg glow-border">
-        <img src="Adobe premiere.jpeg" class="w-16 h-16 sm:w-24 sm:h-24 rounded-lg glow-border">
     </div>
 </section>
 
 <section id="contact" class="text-center px-4 py-12">
-    <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text whitespace-nowrap">💌 Let's Connect</h2>
+    <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text">💌 Let's Connect</h2>
     <div class="max-w-sm mx-auto p-6 bg-[#1a0033]/70 rounded-2xl border border-pink-600 glow-border">
         <form class="space-y-4">
             <input type="text" placeholder="Name" class="w-full p-2 border border-pink-400 rounded bg-transparent text-white">
@@ -374,9 +295,9 @@
 
 <div id="chat-toggle" onclick="toggleChat()">🤖</div>
 <div id="chat-container">
-    <div id="chat-header"><span>Celyn's Bot</span><button onclick="toggleChat()">✖</button></div>
-    <div id="chat-messages"><div class="bot-msg">✨ Hi there! I am Celyn's Assistant. I know everything about her portfolio! How can I help you today?</div></div>
-    <div id="chat-input-area"><input type="text" id="chat-input" placeholder="Ask about projects, skills, resume..." onkeypress="handleChat(event)"></div>
+    <div id="chat-header"><span>Celyn's Assistant</span><button onclick="toggleChat()">✖</button></div>
+    <div id="chat-messages"><div class="bot-msg">✨ Hi! I'm Celyn's Bot. I can tell you about her projects, classmates, certificates, and more! Ask me anything.</div></div>
+    <div id="chat-input-area"><input type="text" id="chat-input" placeholder="Type here..." onkeypress="handleChat(event)"></div>
 </div>
 
 <script>
@@ -384,6 +305,7 @@
         const chat = document.getElementById('chat-container');
         chat.style.display = (chat.style.display === 'none' || chat.style.display === '') ? 'flex' : 'none';
     }
+
     function handleChat(e) {
         if (e.key === 'Enter') {
             const input = document.getElementById('chat-input');
@@ -391,75 +313,77 @@
             if (msg) { addMessage(msg, 'user-msg'); input.value = ''; setTimeout(() => botResponse(msg), 600); }
         }
     }
+
     function addMessage(t, c) {
         const d = document.createElement('div'); d.className = c; d.innerText = t;
         const m = document.getElementById('chat-messages'); m.appendChild(d); m.scrollTop = m.scrollHeight;
     }
 
     function botResponse(u) {
-        let r = "";
         const t = u.toLowerCase();
+        let r = "";
 
-        // 🧠 Enhanced Logic pulling from all code sections
-        if (t.includes("hello") || t.includes("hi") || t.includes("hey")) {
-            r = "Hello! ✨ I'm here to guide you through Jocelyn Semillano's (Celyn) portfolio. What would you like to know?";
+        // Comprehensive logic covering ALL info in the code
+        if (t.includes("hi") || t.includes("hello") || t.includes("hey")) {
+            r = "Hello! ✨ How can I help you today? I have access to Celyn's full portfolio details!";
+        } 
+        else if (t.includes("who") || t.includes("name") || t.includes("celyn") || t.includes("jocelyn")) {
+            r = "This is the portfolio of Jocelyn Semillano (Celyn), a 2nd Year BSIT Student and technical creator! 👩‍💻";
         }
-        else if (t.includes("who") || t.includes("about") || t.includes("celyn") || t.includes("jocelyn")) {
-            r = "Celyn (Jocelyn Semillano) is a talented 2nd Year BSIT student who loves creating magical digital experiences with tech and design! 👩‍💻✨";
-        }
-        else if (t.includes("project") || t.includes("chessboard") || t.includes("figma") || t.includes("ecommerce") || t.includes("tshirt")) {
-            r = "Celyn has built amazing projects: a Chessboard UI, T-shirt layouts, Product designs, and a high-fidelity Figma E-commerce prototype! Check 'My Projects' for visuals. 🛠️";
-        }
-        else if (t.includes("resume") || t.includes("cv") || t.includes("bio")) {
-            r = "You can view or download Celyn's full resume directly in the 'Resume' section. It's ready for you! 📄";
-        }
-        else if (t.includes("cert") || t.includes("training") || t.includes("march")) {
-            r = "Celyn completed IT Training Certificates on March 10 and March 12, 2026. You can see the official documents in the 'Certificates' section! 📜";
+        else if (t.includes("project") || t.includes("work") || t.includes("figma") || t.includes("design")) {
+            r = "Celyn has worked on various designs, including a Figma E-commerce prototype, Chessboard UI, and T-shirt layouts! 🛠️";
         }
         else if (t.includes("attendance") || t.includes("simulation") || t.includes("bsit-2b")) {
-            r = "Celyn developed a custom BSIT-2B Attendance System simulation! It features automated lists for girls and boys. Try it out in the 'Simulation' section! 🧪✨";
+            r = "She built a custom Attendance System for section BSIT-2B featuring 15 girls and 14 boys! Try it in the Simulation section. 🧪";
+        }
+        else if (t.includes("classmate") || t.includes("student") || t.includes("list")) {
+            r = "Her BSIT-2B class includes students like Archie, Andrea, Gene Mae, and Rodel. There are 29 students in total in this system! 📚";
+        }
+        else if (t.includes("cert") || t.includes("march")) {
+            r = "Celyn earned IT Training Certificates on March 10 and March 12, 2026! 📜";
         }
         else if (t.includes("skill") || t.includes("tool") || t.includes("software")) {
-            r = "Celyn is proficient in Canva, Figma, Adobe Photoshop, and Adobe Premiere Pro. She's a pro at UI/UX and multimedia editing! 🪄";
+            r = "She uses Canva, Figma, Adobe Photoshop, Premiere Pro, Film Maker Pro, and KineMaster! 🪄";
         }
-        else if (t.includes("experience") || t.includes("award") || t.includes("champion") || t.includes("winner")) {
-            r = "Celyn is a 2021 Video Editing Champion and was a Tarpapel Editor in 2020! She has deep experience in Film Maker Pro, KineMaster, and Canva. 🏆";
+        else if (t.includes("champion") || t.includes("award") || t.includes("winner")) {
+            r = "Celyn was a Video Editing Champion in 2021! 🏅";
         }
-        else if (t.includes("youtube") || t.includes("tutorial") || t.includes("video")) {
-            r = "Celyn shares her knowledge via YouTube tutorials! You can watch them directly in the 'Tutorials' section. 🎥✨";
+        else if (t.includes("youtube") || t.includes("tutorial")) {
+            r = "You can watch her educational tutorials directly in the Tutorials section! 🎥";
         }
-        else if (t.includes("contact") || t.includes("email") || t.includes("message") || t.includes("connect")) {
-            r = "Want to work together? Use the 'Let's Connect' form at the bottom to send Celyn a direct message! 💌";
+        else if (t.includes("resume") || t.includes("cv")) {
+            r = "Her resume is available for viewing and download in the 'Resume' section. 📄";
         }
-        else if (t.includes("girl") || t.includes("boy") || t.includes("student")) {
-            r = "Celyn's attendance system includes 15 girls (like Andrea, Jessa, and Jocelyn) and 14 boys (like Archie, Kevin, and Mark). Check the list in Simulation! 🌸💎";
+        else if (t.includes("contact") || t.includes("email")) {
+            r = "You can reach out to her via the contact form at the bottom of the page! 💌";
+        }
+        else if (t.includes("where") || t.includes("location") || t.includes("from")) {
+            r = "Celyn is based in the Philippines and studies IT! 🇵🇭";
         }
         else {
-            r = "I'm not 100% sure about that specific detail, but I know Celyn is a 2nd year BSIT student with skills in Figma, Video Editing, and Web Simulation! Try asking about her projects or certificates. ✨";
+            r = "That's a great question! ✨ While I'm still learning, I can definitely tell you about Celyn's BSIT-2B projects, her 2021 championship, or her IT certificates!";
         }
-        
+
         addMessage(r, 'bot-msg');
     }
 
     const girls = ["Jocelyn Semillano","Andrea Jean Occeña","Gene Mae Caramihan","Jessa Erosido","Jessa Hilardino","Kristine Joy Basa","Lena Bahian","Rechelle An Casilangan","Roxan Pracio","Shannon De La Cruz","Jeca Dagumboy","Martina Cabrillos","Nera Bahilot","Sheila Marie Lañojan","Trisha Agravante"];
     const boys = ["Archie Vidal","John Rogen Bullag","Mario Nebres Jr.","AjhannAylle Marfil","Anthony Espinosa","Dave Rivera","Jeffrey Coriento","Kenneth Espinosa","Kevin James Plaza","Luke Axel Barrocum","Mark Angelou Banatasa","Nathaniel Pojas","Paul John Malba","Rodel Cepeda"];
 
-    document.getElementById('attendanceDate').valueAsDate = new Date();
-
-    function renderList(list, elementId, type) {
+    function renderList(list, elementId) {
         const container = document.getElementById(elementId);
         list.sort().forEach(name => {
-            const hoverClass = type === 'girl' ? 'girl-item' : 'boy-item';
             container.innerHTML += `
-            <div class="flex justify-between items-center p-2 bg-white/5 rounded-lg mb-1 transition ${hoverClass}">
-                <span class="text-sm font-medium">${name}</span>
-                <input type="checkbox" class="att-check w-5 h-5 accent-pink-500 cursor-pointer" data-name="${name}">
+            <div class="flex justify-between items-center p-2 bg-white/5 rounded-lg mb-1 hover:bg-pink-500/20 transition">
+                <span class="text-sm">${name}</span>
+                <input type="checkbox" class="att-check w-4 h-4 accent-pink-500 cursor-pointer" data-name="${name}">
             </div>`;
         });
     }
 
-    renderList(girls, 'girlsList', 'girl');
-    renderList(boys, 'boysList', 'boy');
+    renderList(girls, 'girlsList');
+    renderList(boys, 'boysList');
+    document.getElementById('attendanceDate').valueAsDate = new Date();
 
     function generateSummary() {
         const checks = document.querySelectorAll('.att-check');
