@@ -50,75 +50,41 @@ body {
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 .float{animation:float 6s ease-in-out infinite;}
 
+/* 🖼️ Modal Lightbox */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  align-items: center; justify-content: center;
+}
+.modal-content { max-width: 90%; max-height: 80%; border: 2px solid #ff66cc; border-radius: 10px; }
+
 /* 🤖 Chatbot Styles */
 #chat-container {
   position: fixed;
   bottom: 90px;
   right: 20px;
-  width: 320px;
-  max-height: 450px;
-  background: rgba(26, 0, 51, 0.98);
+  width: 300px;
+  max-height: 400px;
+  background: rgba(26, 0, 51, 0.95);
   border: 2px solid #ff66cc;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   z-index: 1000;
-  box-shadow: 0 0 25px #ff66cc;
+  box-shadow: 0 0 20px #ff66cc;
   display: none;
 }
 
-#chat-header {
-  background: #ff66cc;
-  padding: 12px;
-  border-radius: 12px 12px 0 0;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#chat-messages {
-  flex: 1;
-  padding: 15px;
-  overflow-y: auto;
-  font-size: 0.85rem;
-}
-
-.bot-msg { color: #ff99ff; margin-bottom: 12px; border-left: 3px solid #ff66cc; padding-left: 10px; }
-.user-msg { color: #fff; margin-bottom: 12px; text-align: right; background: rgba(255, 102, 204, 0.2); padding: 8px; border-radius: 8px; align-self: flex-end; }
-
-#chat-input-area {
-  display: flex;
-  padding: 12px;
-  border-top: 1px solid #ff66cc;
-}
-
-#chat-input {
-  flex: 1;
-  background: transparent;
-  border: 1px solid #ff66cc;
-  border-radius: 5px;
-  color: white;
-  padding: 8px;
-  outline: none;
-}
-
-#chat-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #ff66cc;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 1001;
-  box-shadow: 0 0 20px #ff66cc;
-  font-size: 35px;
-}
+#chat-header { background: #ff66cc; padding: 10px; border-radius: 12px 12px 0 0; font-weight: bold; display: flex; justify-content: space-between; }
+#chat-messages { flex: 1; padding: 10px; overflow-y: auto; font-size: 0.9rem; }
+.bot-msg { color: #ff99ff; margin-bottom: 8px; border-left: 2px solid #ff66cc; padding-left: 8px; }
+.user-msg { color: #fff; margin-bottom: 8px; text-align: right; background: rgba(255, 102, 204, 0.2); padding: 5px; border-radius: 5px; align-self: flex-end; }
+#chat-input-area { display: flex; padding: 10px; border-top: 1px solid #ff66cc; }
+#chat-input { flex: 1; background: transparent; border: 1px solid #ff66cc; border-radius: 5px; color: white; padding: 5px; outline: none; }
+#chat-toggle { position: fixed; bottom: 20px; right: 20px; background: #ff66cc; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1001; box-shadow: 0 0 15px #ff66cc; font-size: 30px; }
 
 /* Scrollbar */
 ::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-thumb{background:#ff66ff;border-radius:4px;}
@@ -133,7 +99,11 @@ section{scroll-margin-top:80px;}
 <div class="sparkles"></div>
 <div class="magic-frame"></div>
 
-<nav class="py-4 px-2 text-center text-white font-bold text-xs sm:text-base flex flex-wrap justify-center gap-4 sticky top-0 z-50 bg-pink-700/40 backdrop-blur-lg border-b border-pink-500/30">
+<div id="imageModal" class="modal" onclick="this.style.display='none'">
+  <img class="modal-content" id="modalImg">
+</div>
+
+<nav class="py-3 px-2 text-center text-white font-bold text-sm sm:text-base flex flex-wrap justify-center gap-3 sticky top-0 z-50 bg-pink-700/40 backdrop-blur-md">
   <a href="#home">Home</a>
   <a href="#about">About</a>
   <a href="#resume">Resume</a>
@@ -145,47 +115,50 @@ section{scroll-margin-top:80px;}
   <a href="#contact">Contact</a>
 </nav>
 
-<section id="home" class="flex flex-col items-center text-center px-4 py-20">
-  <h1 class="text-4xl sm:text-5xl font-bold mb-8 glow-text">Welcome to My Portfolio!</h1>
-  <div class="relative">
-    <img src="Just me.jpg" alt="Celyn" class="w-48 h-48 rounded-full border-4 border-pink-500 object-cover glow-border float">
+<section id="home" class="flex flex-col items-center text-center px-4 py-16">
+  <h1 class="text-3xl sm:text-4xl font-bold mb-6 glow-text">Welcome to My Portfolio!</h1>
+  <div class="relative mb-6">
+    <img src="Just me.jpg" alt="Celyn" class="w-40 h-40 rounded-full border-4 border-pink-500 object-cover glow-border float">
   </div>
 </section>
 
-<section id="about" class="text-center px-4 py-16">
+<section id="about" class="text-center px-4 py-12">
   <h2 class="text-3xl font-bold mb-6 text-pink-400 glow-text">✨ About Me ✨</h2>
-  <div class="max-w-2xl mx-auto text-gray-200 bg-[#1a0033]/40 p-8 rounded-3xl border border-pink-500/20">
-    <p>I am <span class="font-bold text-white text-xl">Celyn</span>, a 2nd Year BSIT Student. I create magical digital experiences through technology and design.</p>
+  <div class="max-w-md sm:max-w-2xl mx-auto text-gray-200">
+    <p>I am <span class="font-bold text-white">Celyn</span>, a 2nd Year BSIT Student. I create magical digital experiences through technology and design.</p>
   </div>
 </section>
 
-<section id="resume" class="text-center px-4 py-16">
+<section id="resume" class="text-center px-4 py-12">
   <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text">📄 My Resume</h2>
   <div class="max-w-xs mx-auto">
-    <div class="bg-[#1a0033]/80 border border-pink-500 rounded-2xl p-4 glow-border float">
-      <img src="resume.jpg" alt="Resume Preview" class="w-full rounded-lg mb-4">
-      <a href="resume.jpg" download class="inline-block py-2 px-8 bg-pink-600 text-white font-bold rounded-lg hover:bg-pink-700 transition">Download</a>
+    <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-4 glow-border float">
+      <img src="resume.jpg" alt="Resume Preview" class="w-full rounded-lg mb-4 cursor-pointer" onclick="openModal(this.src)">
+      <div class="flex gap-2">
+        <a href="resume.jpg" target="_blank" class="flex-1 py-2 bg-purple-600 text-white text-sm font-bold rounded-lg hover:bg-purple-700 transition">View Full</a>
+        <a href="resume.jpg" download class="flex-1 py-2 bg-pink-600 text-white text-sm font-bold rounded-lg hover:bg-pink-700 transition">Download</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="certificates" class="text-center px-4 py-16">
+<section id="certificates" class="text-center px-4 py-12">
   <h2 class="text-3xl font-bold mb-10 text-pink-400 glow-text">📜 IT Training Certificates</h2>
   <div class="flex flex-col items-center gap-8 max-w-2xl mx-auto">
     <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float w-full">
       <p class="text-pink-300 font-bold mb-4">March 10, 2026</p>
-      <img src="March 10.jpg" class="w-full h-auto rounded-lg border border-pink-400 mb-6" alt="Certificate March 10">
+      <img src="March 10.jpg" class="w-full h-auto rounded-lg border border-pink-400 mb-6 cursor-pointer" alt="Certificate March 10" onclick="openModal(this.src)">
       <a href="March 10.jpg" download class="inline-block py-2 px-8 bg-pink-600 text-white font-bold rounded-lg hover:bg-pink-700 transition">Download Certificate</a>
     </div>
     <div class="bg-[#1a0033]/70 border border-pink-500 rounded-2xl p-6 glow-border float w-full">
       <p class="text-pink-300 font-bold mb-4">March 12, 2026</p>
-      <img src="March 12.jpg" class="w-full h-auto rounded-lg border border-pink-400 mb-6" alt="Certificate March 12">
+      <img src="March 12.jpg" class="w-full h-auto rounded-lg border border-pink-400 mb-6 cursor-pointer" alt="Certificate March 12" onclick="openModal(this.src)">
       <a href="March 12.jpg" download class="inline-block py-2 px-8 bg-pink-600 text-white font-bold rounded-lg hover:bg-pink-700 transition">Download Certificate</a>
     </div>
   </div>
 </section>
 
-<section id="simulation" class="text-center px-4 py-16">
+<section id="simulation" class="text-center px-4 py-12">
   <h2 class="text-3xl font-bold mb-10 text-pink-300 glow-text">🧪 My Simulation</h2>
   <div class="max-w-4xl mx-auto bg-[#1a0033]/90 border border-pink-500 rounded-3xl p-8">
     <h3 class="text-2xl font-bold mb-6">BSIT-2B Attendance System</h3>
@@ -193,7 +166,6 @@ section{scroll-margin-top:80px;}
       <input type="date" id="attendanceDate" class="bg-black/60 border border-pink-500 text-white p-2 rounded-lg outline-none">
       <input type="text" id="subjectName" placeholder="Subject Name" class="bg-black/60 border border-pink-500 text-white p-2 rounded-lg outline-none">
     </div>
-
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-left">
       <div class="bg-white/5 p-5 rounded-2xl border border-pink-400/30">
         <h4 class="text-pink-300 font-bold mb-4">Girls 🌸</h4>
@@ -204,108 +176,45 @@ section{scroll-margin-top:80px;}
         <div id="boysList" class="space-y-2 h-64 overflow-y-auto pr-2"></div>
       </div>
     </div>
-
-    <button onclick="generateSummary()" class="px-20 py-4 bg-pink-600 rounded-full font-bold hover:bg-pink-700 transition shadow-lg">DONE ✨</button>
-
+    <button onclick="generateSummary()" class="w-full max-w-sm py-3 bg-pink-600 rounded-xl font-bold hover:bg-pink-700 transition">DONE ✨</button>
     <div id="summaryPanel" class="hidden mt-8 p-8 bg-black/80 rounded-3xl border border-pink-500 text-left">
       <h3 class="text-xl font-bold text-center text-pink-400 mb-4">Attendance Report</h3>
       <p id="reportMeta" class="text-center text-gray-400 mb-8 italic"></p>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-        <div>
-          <h4 class="text-green-400 font-bold">Present: <span id="countPresent">0</span></h4>
-          <div id="listPresent" class="text-xs mt-2 text-gray-300 leading-relaxed"></div>
-        </div>
-        <div>
-          <h4 class="text-red-400 font-bold">Absent: <span id="countAbsent">0</span></h4>
-          <div id="listAbsent" class="text-xs mt-2 text-gray-300 leading-relaxed"></div>
-        </div>
+        <div><h4 class="text-green-400 font-bold">Present: <span id="countPresent">0</span></h4><div id="listPresent" class="text-xs mt-2 text-gray-300 leading-relaxed"></div></div>
+        <div><h4 class="text-red-400 font-bold">Absent: <span id="countAbsent">0</span></h4><div id="listAbsent" class="text-xs mt-2 text-gray-300 leading-relaxed"></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="skills" class="text-center px-4 py-16">
-  <h2 class="text-3xl font-bold mb-10 text-pink-400 glow-text">🛠️ My Skills</h2>
-  <div class="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
-    <img src="figma ecommerce.jpg" class="w-64 h-auto rounded-xl glow-border float">
-    <img src="product design.png" class="w-64 h-auto rounded-xl glow-border float">
-    <img src="tshirt layout.png" class="w-64 h-auto rounded-xl glow-border float">
-  </div>
-</section>
-
-<section id="contact" class="text-center px-4 py-16">
+<section id="contact" class="text-center px-4 py-12">
   <h2 class="text-3xl font-bold mb-8 text-pink-400 glow-text">💌 Let's Connect</h2>
-  <div class="max-w-md mx-auto p-8 bg-[#1a0033]/80 rounded-3xl border-2 border-pink-600 glow-border">
+  <div class="max-w-md mx-auto p-8 bg-[#1a0033]/80 rounded-3xl border-2 border-pink-600">
     <form class="space-y-4">
-      <input type="text" placeholder="Name" class="w-full p-3 border border-pink-400 rounded-xl bg-black/40 text-white">
-      <textarea placeholder="Message" rows="4" class="w-full p-3 border border-pink-400 rounded-xl bg-black/40 text-white"></textarea>
-      <button type="button" class="w-full py-3 bg-pink-600 rounded-xl font-bold hover:bg-pink-700 transition">Send ✨</button>
+      <input type="text" placeholder="Name" class="w-full p-3 border border-pink-400 rounded-xl bg-black/40 text-white outline-none">
+      <textarea placeholder="Message" rows="4" class="w-full p-3 border border-pink-400 rounded-xl bg-black/40 text-white outline-none"></textarea>
+      <button type="button" class="w-full py-3 bg-pink-600 rounded-xl font-bold hover:bg-pink-700 transition">Send Message ✨</button>
     </form>
   </div>
 </section>
 
+<footer class="py-6 text-center text-gray-600 text-xs">
+  <p>&copy; Crafted with Magic & IT Skill</p>
+</footer>
+
 <div id="chat-toggle" onclick="toggleChat()">🤖</div>
 <div id="chat-container">
   <div id="chat-header"><span>Celyn's Magical Bot</span><button onclick="toggleChat()">&times;</button></div>
-  <div id="chat-messages"><div class="bot-msg">✨ Hello! I am Celyn's assistant. Ask me about her BSIT-2B Attendance system or how to download her resume!</div></div>
+  <div id="chat-messages"><div class="bot-msg">✨ Hello! I'm Celyn's assistant. You can try her BSIT-2B Attendance System or download her resume in the Resume section!</div></div>
   <div id="chat-input-area"><input type="text" id="chat-input" placeholder="Type a message..." onkeypress="handleChat(event)"></div>
 </div>
 
 <script>
-  /* --- 🧪 ATTENDANCE SYSTEM LOGIC --- */
-  const girls = ["Jocelyn Semillano","Andrea Jean Occeña","Gene Mae Caramihan","Jessa Erosido","Jessa Hilardino","Kristine Joy Basa","Lena Bahian","Rechelle An Casilangan","Roxan Pracio","Shannon De La Cruz","Jeca Dagumboy","Martina Cabrillos","Nera Bahilot","Sheila Marie Lañojan","Trisha Agravante"];
-  const boys = ["Archie Vidal","John Rogen Bullag","Mario Nebres Jr.","AjhannAylle Marfil","Anthony Espinosa","Dave Rivera","Jeffrey Coriento","Kenneth Espinosa","Kevin James Plaza","Luke Axel Barrocum","Mark Angelou Banatasa","Nathaniel Pojas","Paul John Malba","Rodel Cepeda"];
-
-  document.getElementById('attendanceDate').valueAsDate = new Date();
-
-  function renderList(list, elementId) {
-    const container = document.getElementById(elementId);
-    list.sort().forEach(name => {
-      container.innerHTML += `
-      <div class="flex justify-between items-center p-3 bg-white/5 rounded-xl mb-2">
-          <span class="text-sm">${name}</span>
-          <input type="checkbox" class="att-check w-5 h-5 accent-pink-500 cursor-pointer" data-name="${name}">
-      </div>`;
-    });
-  }
-  renderList(girls, 'girlsList');
-  renderList(boys, 'boysList');
-
-  function generateSummary() {
-    const checks = document.querySelectorAll('.att-check');
-    let p = []; let a = [];
-    checks.forEach(c => {
-      const name = c.getAttribute('data-name');
-      if (c.checked) p.push(name); else a.push(name);
-    });
-    document.getElementById('countPresent').innerText = p.length;
-    document.getElementById('countAbsent').innerText = a.length;
-    document.getElementById('listPresent').innerHTML = p.map(n => "• " + n).join("<br>");
-    document.getElementById('listAbsent').innerHTML = a.map(n => "• " + n).join("<br>");
-    document.getElementById('reportMeta').innerText = `Subject: ${document.getElementById('subjectName').value || "Class"} | Date: ${document.getElementById('attendanceDate').value}`;
-    document.getElementById('summaryPanel').style.display = 'block';
-    document.getElementById('summaryPanel').scrollIntoView({ behavior: 'smooth' });
-  }
-
-  /* --- 🤖 CHATBOT LOGIC --- */
-  function toggleChat() {
-    const chat = document.getElementById('chat-container');
-    chat.style.display = (chat.style.display === 'none' || chat.style.display === '') ? 'flex' : 'none';
-  }
-
-  function handleChat(e) {
-    if (e.key === 'Enter') {
-      const input = document.getElementById('chat-input');
-      const msg = input.value.trim();
-      if (msg) { addMsg(msg, 'user-msg'); input.value = ''; setTimeout(() => botResp(msg), 600); }
-    }
-  }
-
-  function addMsg(t, c) {
-    const d = document.createElement('div'); d.className = c; d.innerText = t;
-    const m = document.getElementById('chat-messages'); m.appendChild(d); m.scrollTop = m.scrollHeight;
-  }
-
+  function openModal(src) { document.getElementById('modalImg').src = src; document.getElementById('imageModal').style.display = 'flex'; }
+  function toggleChat() { const chat = document.getElementById('chat-container'); chat.style.display = (chat.style.display === 'none' || chat.style.display === '') ? 'flex' : 'none'; }
+  function handleChat(e) { if (e.key === 'Enter') { const input = document.getElementById('chat-input'); const msg = input.value.trim(); if (msg) { addMsg(msg, 'user-msg'); input.value = ''; setTimeout(() => botResp(msg), 600); } } }
+  function addMsg(t, c) { const d = document.createElement('div'); d.className = c; d.innerText = t; const m = document.getElementById('chat-messages'); m.appendChild(d); m.scrollTop = m.scrollHeight; }
   function botResp(u) {
     const t = u.toLowerCase();
     let r = "I can tell you about Celyn's projects, certificates, or her achievements! ✨";
@@ -313,6 +222,29 @@ section{scroll-margin-top:80px;}
     else if (t.includes("cert") || t.includes("training")) r = "Celyn has certificates from March 2026 available in the Certificates section! 📜";
     else if (t.includes("attendance") || t.includes("bsit")) r = "She built an attendance system for BSIT-2B that tracks 29 students! 🧪";
     addMsg(r, 'bot-msg');
+  }
+
+  const girls = ["Jocelyn Semillano","Andrea Jean Occeña","Gene Mae Caramihan","Jessa Erosido","Jessa Hilardino","Kristine Joy Basa","Lena Bahian","Rechelle An Casilangan","Roxan Pracio","Shannon De La Cruz","Jeca Dagumboy","Martina Cabrillos","Nera Bahilot","Sheila Marie Lañojan","Trisha Agravante"];
+  const boys = ["Archie Vidal","John Rogen Bullag","Mario Nebres Jr.","AjhannAylle Marfil","Anthony Espinosa","Dave Rivera","Jeffrey Coriento","Kenneth Espinosa","Kevin James Plaza","Luke Axel Barrocum","Mark Angelou Banatasa","Nathaniel Pojas","Paul John Malba","Rodel Cepeda"];
+  document.getElementById('attendanceDate').valueAsDate = new Date();
+  function renderList(list, elementId) {
+    const container = document.getElementById(elementId);
+    list.sort().forEach(name => {
+      container.innerHTML += `<div class="flex justify-between items-center p-3 bg-white/5 rounded-xl mb-2 hover:bg-pink-500/20 transition"><span class="text-sm font-medium">${name}</span><input type="checkbox" class="att-check w-5 h-5 accent-pink-500 cursor-pointer" data-name="${name}"></div>`;
+    });
+  }
+  renderList(girls, 'girlsList'); renderList(boys, 'boysList');
+  function generateSummary() {
+    const checks = document.querySelectorAll('.att-check');
+    let p = []; let a = [];
+    checks.forEach(c => { const name = c.getAttribute('data-name'); if (c.checked) p.push(name); else a.push(name); });
+    document.getElementById('countPresent').innerText = p.length;
+    document.getElementById('countAbsent').innerText = a.length;
+    document.getElementById('listPresent').innerHTML = p.map(n => "• " + n).join("<br>");
+    document.getElementById('listAbsent').innerHTML = a.map(n => "• " + n).join("<br>");
+    const sub = document.getElementById('subjectName').value || "Class Session";
+    document.getElementById('reportMeta').innerText = `Subject: ${sub} | Date: ${document.getElementById('attendanceDate').value}`;
+    document.getElementById('summaryPanel').style.display = 'block'; document.getElementById('summaryPanel').scrollIntoView({ behavior: 'smooth' });
   }
 </script>
 </body>
