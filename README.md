@@ -237,9 +237,7 @@ section{scroll-margin-top:80px;}
   </div>
 </section>
 
-<footer class="py-6 text-center text-gray-600 text-xs">
-  <p>Crafted with Magic & IT Skill</p>
-</footer>
+<footer class="py-6 text-center"></footer>
 
 <div id="chat-toggle" onclick="toggleChat()">🤖</div>
 <div id="chat-container">
